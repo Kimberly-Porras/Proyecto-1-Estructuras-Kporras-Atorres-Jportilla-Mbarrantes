@@ -1,4 +1,4 @@
-controller\proyecto\PrincipalController.class
 module-info.class
-controller\proyecto\CuboController.class
 controller\proyecto\App.class
+controller\proyecto\PrincipalController.class
+controller\proyecto\CuboController.class

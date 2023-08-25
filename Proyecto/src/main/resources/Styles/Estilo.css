@@ -9,15 +9,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 #AnchorPane {
     -fx-background-color: linear-gradient(to bottom, #B0D2FF, white);
+    -fx-font-family: "Britannic Bold";
 }
 
 .button{
     -fx-background-color: white;
     -fx-border-radius: 30px;
     -fx-background-radius: 30px;
+    -fx-font-size: 15pt;
 }
 
-.button: hover{
+.button:hover{
+    -fx-border-color: grey;
+}
+
+.text-field#txt_nombre{
+    -fx-font-size: 15pt;
+    -fx-text-fill: red;
+}
+
+.text-field: hover{
     -fx-border-color: grey;
 }
 

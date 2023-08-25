@@ -10,17 +10,13 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
  *
  * @author Melani Barrantes
  */
-public class PrincipalController implements Initializable {
-
-    @FXML
-    private TextField txt_nombre;
+public class AcercaDeController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -31,18 +27,8 @@ public class PrincipalController implements Initializable {
     }    
 
     @FXML
-    private void Salir(ActionEvent event) {
-        System.exit(0);
-    }
-
-    @FXML
-    private void PantallaJuego(ActionEvent event) throws IOException {
-        App.setRoot("Cubo");
-    }
-
-    @FXML
-    private void PantallaAcercaDe(ActionEvent event) throws IOException {
-        App.setRoot("AcercaDe");
+    private void Volver(ActionEvent event) throws IOException {
+        App.setRoot("Principal");
     }
     
 }
