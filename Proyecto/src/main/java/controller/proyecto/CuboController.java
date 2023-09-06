@@ -25,6 +25,7 @@ public class CuboController implements Initializable {
     private GridPane grd_Cubo;
 
     int cubo[][][] = new int[6][3][3];
+    int aux[][] = new int[3][3];
     int posicion = 2;
 
     @Override
@@ -126,97 +127,173 @@ public class CuboController implements Initializable {
 
     @FXML
     private void moverAbajo(ActionEvent event) {
-        if (posicion == 2) {
-            grd_Cubo.setStyle("-fx-background-color: yellow;");
-            posicion = 6;
-        } else {
-            if (posicion == 6) {
-                grd_Cubo.setStyle("-fx-background-color: FF7000;");
-                posicion = 4;
-            } else {
-                if (posicion == 4) {
-                    grd_Cubo.setStyle("-fx-background-color: white;");
-                    posicion = 5;
-                } else {
-                    if (posicion == 5) {
-                        grd_Cubo.setStyle("-fx-background-color: red;");
-                        posicion = 2;
-                    }
-                }
+        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
+            for (int j = 0; j < 3; j++) {
+                aux[i][j] = cubo[1][i][j];
             }
         }
 
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[1][j][k] = cubo[5][j][k];
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[5][j][k] = cubo[3][j][k];
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[3][j][k] = cubo[4][j][k];
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[4][j][k] = aux[j][k];
+            }
+        }
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo[i][j][k]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        System.out.println("----------------------------");
     }
 
     @FXML
     private void moverArriba(ActionEvent event) {
-        if (posicion == 6) {
-            grd_Cubo.setStyle("-fx-background-color: red;");
-            posicion = 2;
-        } else {
-            if (posicion == 2) {
-                grd_Cubo.setStyle("-fx-background-color: white;");
-                posicion = 5;
-            } else {
-                if (posicion == 5) {
-                    grd_Cubo.setStyle("-fx-background-color: FF7000;");
-                    posicion = 4;
-                } else {
-                    if (posicion == 4) {
-                        grd_Cubo.setStyle("-fx-background-color: yellow;");
-                        posicion = 6;
-                    }
-                }
+        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
+            for (int j = 0; j < 3; j++) {
+                aux[i][j] = cubo[1][i][j];
             }
         }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[1][j][k] = cubo[4][j][k];
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[4][j][k] = cubo[3][j][k];
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[3][j][k] = cubo[5][j][k];
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[5][j][k] = aux[j][k];
+            }
+        }
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo[i][j][k]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        System.out.println("----------------------------");
     }
 
     @FXML
     private void moverDerecha(ActionEvent event) {
-        if (posicion == 2) {
-            grd_Cubo.setStyle("-fx-background-color: blue;");
-            posicion = 3;
-        } else {
-            if (posicion == 3) {
-                grd_Cubo.setStyle("-fx-background-color: FF7000;");
-                posicion = 4;
-            } else {
-                if (posicion == 4) {
-                    grd_Cubo.setStyle("-fx-background-color: green;");
-                    posicion = 1;
-                } else {
-                    if (posicion == 1) {
-                        grd_Cubo.setStyle("-fx-background-color: red;");
-                        posicion = 2;
-                    }
-
-                }
+        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
+            for (int j = 0; j < 3; j++) {
+                aux[i][j] = cubo[1][i][j];
             }
         }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[1][j][k] = cubo[0][j][k];
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[0][j][k] = cubo[3][j][k];
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[3][j][k] = cubo[2][j][k];
+            }
+        }
+
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                cubo[2][j][k] = aux[j][k];
+            }
+        }
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo[i][j][k]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        System.out.println("----------------------------");
     }
 
     @FXML
     private void moverIzq(ActionEvent event) {
-        if (posicion == 2) {
-            grd_Cubo.setStyle("-fx-background-color: green;");
-            posicion = 1;
-        } else {
-            if (posicion == 1) {
-                grd_Cubo.setStyle("-fx-background-color: FF7000;");
-                posicion = 4;
-            } else {
-                if (posicion == 4) {
-                    grd_Cubo.setStyle("-fx-background-color: blue;");
-                    posicion = 3;
-                } else {
-                    if (posicion == 3) {
-                        grd_Cubo.setStyle("-fx-background-color: red;");
-                        posicion = 2;
-                    }
-
-                }
+        for(int i = 0; i < 3; i++){ //Cara presentable pasarla a aux para mover matriz
+            for(int j = 0; j < 3; j++){
+                aux[i][j] = cubo[1][i][j];
             }
         }
+        
+            for(int j = 0; j < 3; j++){
+                for(int k = 0; k < 3; k++){
+                    cubo[1][j][k] = cubo[2][j][k];
+                }
+            }
+        
+        for(int j = 0; j < 3; j++){
+            for(int k = 0; k < 3; k++){
+                cubo[2][j][k] = cubo[3][j][k];
+            }
+        }
+        
+        for(int j = 0; j < 3; j++){
+            for(int k = 0; k < 3; k++){
+                cubo[3][j][k] = cubo[0][j][k];
+            }
+        }
+        
+        for(int j = 0; j < 3; j++){
+            for(int k = 0; k < 3; k++){
+                cubo[0][j][k] = aux[j][k];
+            }
+        }
+        for(int i = 0; i < 6; i++){
+            for(int j = 0; j < 3; j++){
+                for(int k = 0; k < 3; k++){
+                    System.out.print("| " + cubo[i][j][k]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        System.out.println("----------------------------");
     }
-
 }
