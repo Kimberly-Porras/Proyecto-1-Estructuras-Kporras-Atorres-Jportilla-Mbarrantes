@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -20,7 +21,7 @@ import javafx.scene.control.TextField;
 public class PrincipalController implements Initializable {
 
     @FXML
-    private TextField txt_nombre;
+    private TextField txt_nombreJugador;
 
     /**
      * Initializes the controller class.
@@ -43,6 +44,10 @@ public class PrincipalController implements Initializable {
     @FXML
     private void PantallaAcercaDe(ActionEvent event) throws IOException {
         App.setRoot("AcercaDe");
+    }
+
+    @FXML
+    private void OnBtnJugar(MouseEvent event) {
     }
     
 }

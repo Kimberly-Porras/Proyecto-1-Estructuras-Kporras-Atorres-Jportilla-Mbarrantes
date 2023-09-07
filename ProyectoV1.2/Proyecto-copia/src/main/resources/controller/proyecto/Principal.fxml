@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.proyecto.PrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.proyecto.PrincipalController">
    <children>
       <Label layoutX="400.0" layoutY="24.0" text="Cubo Rubik">
          <font>
@@ -168,8 +168,8 @@
             <Image url="@../../Imagenes/Cubo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txt_nombre" alignment="TOP_CENTER" layoutX="447.0" layoutY="170.0" prefHeight="28.0" prefWidth="210.0" promptText="Nickname" />
-      <Button layoutX="508.0" layoutY="264.0" mnemonicParsing="false" onAction="#PantallaJuego" prefHeight="35.0" prefWidth="87.0" text="Jugar" />
+      <TextField fx:id="txt_nombreJugador" alignment="TOP_CENTER" layoutX="447.0" layoutY="170.0" prefHeight="28.0" prefWidth="210.0" promptText="Nickname" />
+      <Button layoutX="508.0" layoutY="264.0" mnemonicParsing="false" onAction="#PantallaJuego" onMouseClicked="#OnBtnJugar" prefHeight="35.0" prefWidth="87.0" text="Jugar" />
       <Button layoutX="516.0" layoutY="362.0" mnemonicParsing="false" onAction="#PantallaAcercaDe" prefHeight="52.0" prefWidth="57.0">
          <graphic>
             <ImageView fitHeight="44.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">

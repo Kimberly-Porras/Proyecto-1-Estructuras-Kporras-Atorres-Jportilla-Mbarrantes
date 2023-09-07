@@ -8,6 +8,9 @@ package controller.proyecto;
  *
  * @author alber
  */
+
+
 public class Accesibilidad {
+    
     
 }
