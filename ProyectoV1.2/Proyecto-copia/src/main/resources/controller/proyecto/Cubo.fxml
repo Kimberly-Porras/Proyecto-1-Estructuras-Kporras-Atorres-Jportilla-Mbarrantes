@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1080.0" stylesheets="@../../Styles/Estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.proyecto.CuboController">
@@ -23,6 +24,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
+         <children>
+            <Rectangle fx:id="R_11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" stroke="BLACK" strokeType="INSIDE" width="132.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Rectangle fx:id="R_21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" stroke="BLACK" strokeType="INSIDE" width="132.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Rectangle fx:id="R_12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" stroke="BLACK" strokeType="INSIDE" width="132.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Rectangle fx:id="R_22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" stroke="BLACK" strokeType="INSIDE" width="132.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Rectangle fx:id="R_00" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" stroke="BLACK" strokeType="INSIDE" width="132.0" />
+            <Rectangle fx:id="R_10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" stroke="BLACK" strokeType="INSIDE" width="132.0" GridPane.columnIndex="1" />
+            <Rectangle fx:id="R_20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" stroke="BLACK" strokeType="INSIDE" width="132.0" GridPane.columnIndex="2" />
+            <Rectangle fx:id="R_01" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" stroke="BLACK" strokeType="INSIDE" width="132.0" GridPane.rowIndex="1" />
+            <Rectangle fx:id="R_02" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="131.0" stroke="BLACK" strokeType="INSIDE" width="132.0" GridPane.rowIndex="2" />
+         </children>
       </GridPane>
       <Button layoutX="84.0" layoutY="97.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="78.0">
          <graphic>

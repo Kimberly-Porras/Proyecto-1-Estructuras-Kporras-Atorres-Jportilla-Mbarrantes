@@ -28,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: red;
 }
 
-.text-field: hover{
+.text-field:hover{
     -fx-border-color: grey;
 }
 
