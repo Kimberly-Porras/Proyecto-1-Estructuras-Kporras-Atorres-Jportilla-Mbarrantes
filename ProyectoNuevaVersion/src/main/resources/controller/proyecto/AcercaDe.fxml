@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../../Styles/Estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.proyecto.AcercaDeController">
+   <children>
+      <Label layoutX="335.0" layoutY="28.0" text="Acerca del Cubo Rubik">
+         <font>
+            <Font name="Britannic Bold" size="60.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="60.0" fitWidth="84.0" layoutX="182.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="14.0" layoutY="734.0" mnemonicParsing="false" onAction="#Volver" prefHeight="52.0" prefWidth="128.0" text="Volver">
+         <font>
+            <Font name="Britannic Bold" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="42.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Imagenes/volver.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="82.0" fitWidth="70.0" layoutX="28.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="37.0" layoutX="156.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="37.0" layoutX="28.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="84.0" layoutX="92.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="84.0" layoutX="1031.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="82.0" fitWidth="70.0" layoutX="1174.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="37.0" layoutX="1092.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="37.0" layoutX="1209.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="84.0" layoutX="1123.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <TextArea editable="false" layoutX="340.0" layoutY="172.0" prefHeight="455.0" prefWidth="599.0" text="El Cubo de Rubik, también conocido como cubo mágico, es un popular &#10;rompecabezas tridimensional. El objetivo del juego es desordenar los &#10;colores mezclando las caras del cubo y luego restaurarlo a su estado &#10;original, donde cada una de las seis caras tenga un solo color.&#10;&#10;El cubo tiene una estructura de 3x3x3, lo que significa que consta de &#10;6 caras, cada una de un color sólido: blanco, amarillo, azul, verde, rojo &#10;y naranja. Para resolver el Cubo de Rubik, debes mover las caras y las &#10;capas del cubo de manera que cada cara tenga un solo color.&#10;El juego muestra una sola cara siempre comenzando por &#10;&#10;                   , el cubo se puede mover completo para arriba, abajo,&#10;&#10;&#10;&#10;&#10;derecha e izquierda. Además, se pueden realizar movimientos de las&#10;filas superior e inferior para la derecha e izquierda como las filas de&#10;los lados para lados para arriba y abajo.&#10;El juego tiene la opcion para reiniciar y para guardar la partida. Para&#10;poder jugar se debe colocar un nickname único y dar click al botón de&#10;jugar o si desea continuar una partida colocar el nickname con el que&#10;se guardo.">
+         <font>
+            <Font name="Britannic Bold" size="18.0" />
+         </font></TextArea>
+      <Label layoutX="628.0" layoutY="28.0" text="Cubo Rubik">
+         <font>
+            <Font name="Britannic Bold" size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="634.0" layoutY="32.0" text="Cubo Rubik" textFill="#ff9800">
+         <font>
+            <Font name="Britannic Bold" size="60.0" />
+         </font>
+      </Label>
+      <Label layoutX="639.0" layoutY="37.0" text="Cubo Rubik" textFill="#ffe600">
+         <font>
+            <Font name="Britannic Bold" size="60.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="70.0" fitWidth="106.0" layoutX="354.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/CuboDesplegado.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="200.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="23.0" layoutX="134.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="23.0" layoutX="1080.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="23.0" layoutX="1099.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Imagenes/AcercaDe.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

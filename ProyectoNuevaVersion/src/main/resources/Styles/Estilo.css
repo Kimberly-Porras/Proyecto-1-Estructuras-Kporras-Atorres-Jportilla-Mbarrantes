@@ -12,23 +12,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-family: "Britannic Bold";
 }
 
+.highlight{
+    -fx-background-color: #00000015;
+    -fx-background-radius: 15;
+}
+
 .button{
-    -fx-background-color: white;
+    -fx-background-color: #00000015;
     -fx-border-radius: 30px;
-    -fx-background-radius: 30px;
+    -fx-background-radius: 30;
     -fx-font-size: 15pt;
 }
 
-.button:hover{
-    -fx-border-color: grey;
+.button: hover{
+    -fx-border-color: blue;
 }
 
-.text-field#txt_nombre{
+.text-field{
     -fx-font-size: 15pt;
     -fx-text-fill: red;
 }
 
-.text-field:hover{
+.text-field: hover{
     -fx-border-color: grey;
 }
-

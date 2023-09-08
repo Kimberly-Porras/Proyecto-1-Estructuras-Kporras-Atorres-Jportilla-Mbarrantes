@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Cubo"), 1080, 800);
+        scene = new Scene(loadFXML("Principal"), 1280, 800);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("Cubo Rubik");

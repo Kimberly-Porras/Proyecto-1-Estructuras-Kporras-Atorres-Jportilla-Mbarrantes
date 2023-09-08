@@ -44,5 +44,9 @@ public class PrincipalController implements Initializable {
     private void PantallaAcercaDe(ActionEvent event) throws IOException {
         App.setRoot("AcercaDe");
     }
+
+    @FXML
+    private void ContinuarJuego(ActionEvent event) {
+    }
     
 }

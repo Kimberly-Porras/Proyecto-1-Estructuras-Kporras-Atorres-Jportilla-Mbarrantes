@@ -29,7 +29,6 @@ public class CuboController implements Initializable {
 
     int cubo[][][] = new int[6][3][3];
     int aux[][] = new int[3][3];
-    int posicion; //Saber la posicion donde comienza
 
     @FXML
     private Rectangle R_00;
@@ -52,16 +51,6 @@ public class CuboController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Si se quiere iniciar en otro color se debe cambiar en la linea 33 y 34
-        //posicion = 2; //Comienza del rojo
-
-        //grd_Cubo.setStyle("-fx-background-color: red;"); //Comienza con el color rojo
-        /*for (Node node : grd_Cubo.getChildren()) {
-            if (node instanceof Rectangle) {
-                Rectangle rect = (Rectangle) node;
-                rect.setFill(Color.RED);
-            }
-        }*/
         asignarValoresMatriz();
         pintarGridPane(1);
     }
@@ -199,6 +188,12 @@ public class CuboController implements Initializable {
             System.out.println("\n");
         }
         
+        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
+            for (int j = 0; j < 3; j++) {
+                aux[i][j] = cubo[1][i][j];
+            }
+        }
+
         pintarGridPane(1);
         System.out.println("----------------------------");
     }
@@ -244,6 +239,12 @@ public class CuboController implements Initializable {
             System.out.println("\n");
         }
         
+        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
+            for (int j = 0; j < 3; j++) {
+                aux[i][j] = cubo[1][i][j];
+            }
+        }
+
         pintarGridPane(1);
         System.out.println("----------------------------");
     }
@@ -287,6 +288,12 @@ public class CuboController implements Initializable {
                 System.out.println("\n");
             }
             System.out.println("\n");
+        }
+
+        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
+            for (int j = 0; j < 3; j++) {
+                aux[i][j] = cubo[1][i][j];
+            }
         }
 
         pintarGridPane(1);
@@ -334,6 +341,12 @@ public class CuboController implements Initializable {
             System.out.println("\n");
         }
         
+        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
+            for (int j = 0; j < 3; j++) {
+                aux[i][j] = cubo[1][i][j];
+            }
+        }
+
         pintarGridPane(1);
         System.out.println("----------------------------");
     }
@@ -355,7 +368,6 @@ public class CuboController implements Initializable {
         }
         return null;
     }
-
     public void pintarGridPane(int cara) {
         for (int fila = 0; fila < 3; fila++) {
             for (int columna = 0; columna < 3; columna++) {
@@ -374,5 +386,16 @@ public class CuboController implements Initializable {
                 }
             }
         }
+    }
+
+    @FXML
+    private void Guardar(ActionEvent event) {
+        guardarMatriz(cubo);
+    }
+
+    @FXML
+    private void Reiniciar(ActionEvent event) {
+        asignarValoresMatriz();
+        pintarGridPane(1);
     }
 }
