@@ -169,7 +169,7 @@
          </image>
       </ImageView>
       <TextField fx:id="txt_nombreJugador" alignment="TOP_CENTER" layoutX="447.0" layoutY="170.0" prefHeight="28.0" prefWidth="210.0" promptText="Nickname" />
-      <Button layoutX="508.0" layoutY="264.0" mnemonicParsing="false" onAction="#PantallaJuego" onMouseClicked="#OnBtnJugar" prefHeight="35.0" prefWidth="87.0" text="Jugar" />
+      <Button layoutX="508.0" layoutY="264.0" mnemonicParsing="false" onMouseClicked="#OnBtnJugar" prefHeight="35.0" prefWidth="87.0" text="Jugar" />
       <Button layoutX="516.0" layoutY="362.0" mnemonicParsing="false" onAction="#PantallaAcercaDe" prefHeight="52.0" prefWidth="57.0">
          <graphic>
             <ImageView fitHeight="44.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">

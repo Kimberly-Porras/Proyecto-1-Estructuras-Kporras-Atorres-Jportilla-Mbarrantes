@@ -23,6 +23,9 @@ import javafx.scene.shape.Rectangle;
  * @author Melani Barrantes
  */
 public class CuboController implements Initializable {
+    
+    Accesibilidad Accesib = new Accesibilidad();
+    PrincipalController Princip =  new PrincipalController();
 
     @FXML
     private GridPane grd_Cubo;
@@ -83,64 +86,10 @@ public class CuboController implements Initializable {
                 }
             }
         }
-        guardarMatriz(cubo);
+        Accesib.guardarMatriz(cubo, Princip.nombre);
     }
 
-    public void guardarMatriz(int valoresCubo[][][]) { //Guarda la matriz en un txt
-        // Nombre del archivo que vamos a crear. Si no exite lo crea y si existe escribe
-        String nombreArchivo = "CUBO.txt";
-
-        //****SOBRESCRIBE*****
-        try {
-            // Abrimos el archivo en modo escritura
-            FileWriter escritor = new FileWriter(nombreArchivo);
-
-            // Creamos un BufferedWriter para escribir datos de manera eficiente
-            BufferedWriter bufferEscritura = new BufferedWriter(escritor);
-
-            // Escribimos texto en el archivo. Sobrescribe.
-            for (int i = 0; i < 6; i++) {
-                if (i == 0) {
-                    bufferEscritura.write("Izquierda\n");
-                } else {
-                    if (i == 1) {
-                        bufferEscritura.write("Frente\n");
-                    } else {
-                        if (i == 2) {
-                            bufferEscritura.write("Derecha\n");
-                        } else {
-                            if (i == 3) {
-                                bufferEscritura.write("Atras\n");
-                            } else {
-                                if (i == 4) {
-                                    bufferEscritura.write("Arriba\n");
-                                } else {
-                                    if (i == 5) {
-                                        bufferEscritura.write("Abajo\n");
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                for (int j = 0; j < 3; j++) {
-                    for (int k = 0; k < 3; k++) {
-                        bufferEscritura.write("| " + cubo[i][j][k]);
-                        //System.out.print("| " + matriz[i][j][k]);
-                    }
-                    bufferEscritura.write("\n");
-                }
-                bufferEscritura.write("\n");
-            }
-
-            // Cerramos el archivo
-            bufferEscritura.close();
-
-        } catch (IOException e) {
-            //En caso de error al escribir en el archivo, manejamos la excepción
-            System.out.println("Error al escribir en el archivo: " + e.getMessage());
-        }
-    }
+    
 
     @FXML
     private void Volver(ActionEvent event) throws IOException { //Vuelve a la pantalla principal
@@ -390,7 +339,7 @@ public class CuboController implements Initializable {
 
     @FXML
     private void Guardar(ActionEvent event) {
-        guardarMatriz(cubo);
+         Accesib.guardarMatriz(cubo, Princip.nombre);
     }
 
     @FXML
