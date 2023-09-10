@@ -14,7 +14,7 @@ public class Accesibilidad {
 
     public static boolean verificarNombreJugador(String nombreJugador) {
         // Ruta completa al directorio
-        String directorio = "C:\\Users\\alber\\OneDrive\\Documentos\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
+        String directorio = "C:\\Users\\joxan\\OneDrive\\Documentos\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
 
         // Verificar si el archivo con el mismo nombre ya existe
         File archivo = new File(directorio + nombreJugador + ".txt");
@@ -23,7 +23,7 @@ public class Accesibilidad {
 
     public static void generarArchivoTexto(String nombreJugador) throws IOException {
         // Ruta completa al directorio
-        String directorio = "C:\\Users\\alber\\OneDrive\\Documentos\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
+        String directorio = "C:\\Users\\joxan\\OneDrive\\Documentos\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
 
         // Verificar si el archivo con el mismo nombre ya existe
         if (verificarNombreJugador(nombreJugador)) {

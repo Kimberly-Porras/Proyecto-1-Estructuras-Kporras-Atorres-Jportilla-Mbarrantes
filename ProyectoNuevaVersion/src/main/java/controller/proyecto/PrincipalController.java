@@ -21,9 +21,10 @@ import javafx.scene.control.Alert.AlertType;
  * @author Melani Barrantes
  */
 public class PrincipalController implements Initializable {
-    static String nombre = "";
+    static String nombre = ""; //Para pasar el nombre por clases
     @FXML
     private TextField txt_nombreJugador;
+    
 
     /**
      * Initializes the controller class.
@@ -68,6 +69,7 @@ public class PrincipalController implements Initializable {
             mostrarAlerta("Nombre Existente", e.getMessage());
         }
     }
+    
     private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(AlertType.WARNING);
         alert.setTitle(titulo);
@@ -75,5 +77,9 @@ public class PrincipalController implements Initializable {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-    
+
+
+    @FXML
+    private void ContinuarJuego(ActionEvent event) {
+    }   
 }
