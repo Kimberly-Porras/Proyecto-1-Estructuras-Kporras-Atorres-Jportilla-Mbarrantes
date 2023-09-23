@@ -4,8 +4,6 @@
  */
 package controller.proyecto;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
@@ -18,11 +16,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-/**
- * FXML Controller class
- *
- * @author Melani Barrantes
- */
+//Universidad Nacional, Campus Coto
+//Desarrollado por:
+    //Joxan Portilla Hernandez
+    //Melani Barrantes Hidalgo
+    //Alberto Torres
+    //Kimberly Porras
+//2023
+
 public class CuboController implements Initializable {
 
     Accesibilidad Accesib = new Accesibilidad();

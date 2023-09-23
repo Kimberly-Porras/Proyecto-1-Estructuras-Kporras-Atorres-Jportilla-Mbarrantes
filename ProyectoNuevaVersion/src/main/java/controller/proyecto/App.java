@@ -8,9 +8,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * JavaFX App
- */
+//Universidad Nacional, Campus Coto
+//Desarrollado por:
+    //Joxan Portilla Hernandez
+    //Melani Barrantes Hidalgo
+    //Alberto Torres
+    //Kimberly Porras
+//2023
+
 public class App extends Application {
 
     private static Scene scene;

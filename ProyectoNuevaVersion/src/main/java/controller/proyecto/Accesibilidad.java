@@ -9,12 +9,19 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//Universidad Nacional, Campus Coto
+//Desarrollado por:
+    //Joxan Portilla Hernandez
+    //Melani Barrantes Hidalgo
+    //Alberto Torres
+    //Kimberly Porras
+//2023
 
 public class Accesibilidad {
 
     public static boolean verificarNombreJugador(String nombreJugador) {
         // Ruta completa al directorio
-        String directorio = "C:\\Users\\joxan\\OneDrive\\Documentos\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
+        String directorio = "D:\\Informacion\\Documents\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
 
         // Verificar si el archivo con el mismo nombre ya existe
         File archivo = new File(directorio + nombreJugador + ".txt");
@@ -23,27 +30,14 @@ public class Accesibilidad {
 
     public static void generarArchivoTexto(String nombreJugador) throws IOException {
         // Ruta completa al directorio
-        String directorio = "C:\\Users\\joxan\\OneDrive\\Documentos\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
+        String directorio = "D:\\Informacion\\Documents\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
 
         // Verificar si el archivo con el mismo nombre ya existe
         if (verificarNombreJugador(nombreJugador)) {
             throw new IOException("El archivo " + nombreJugador + ".txt" + " ya existe en el directorio.");
         }
-
-        /*try {
-            // Crear el archivo en el directorio
-            File nuevoArchivo = new File(directorio + nombreJugador + ".txt");
-            nuevoArchivo.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Manejar cualquier error de escritura en el archivo aquí
-            throw e;
-        }*/
     }
-
-
-        
-
+    
     public void guardarMatriz(int valoresCubo[][][], String nombre) { //Guarda la matriz en un txt
         // Nombre del archivo que vamos a crear. Si no exite lo crea y si existe escribe
         String nombreArchivo = nombre + ".txt";

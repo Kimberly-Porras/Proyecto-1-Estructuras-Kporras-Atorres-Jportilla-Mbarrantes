@@ -15,20 +15,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-/**
- * FXML Controller class
- *
- * @author Melani Barrantes
- */
+//Universidad Nacional, Campus Coto
+//Desarrollado por:
+    //Joxan Portilla Hernandez
+    //Melani Barrantes Hidalgo
+    //Alberto Torres
+    //Kimberly Porras
+//2023
+
 public class PrincipalController implements Initializable {
     static String nombre = ""; //Para pasar el nombre por clases
     @FXML
     private TextField txt_nombreJugador;
     
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
