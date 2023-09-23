@@ -28,12 +28,10 @@ public class CuboController implements Initializable {
 
     Accesibilidad Accesib = new Accesibilidad();
     PrincipalController Princip = new PrincipalController();
+    Cubo cubo = new Cubo();
 
     @FXML
     private GridPane grd_Cubo;
-
-    int cubo[][][] = new int[6][3][3];
-    int aux[][] = new int[3][3];
 
     int FilaArriba[] = new int[12];
     int FilaAbajo[] = new int[12];
@@ -61,7 +59,7 @@ public class CuboController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        asignarValoresMatriz();
+        cubo.asignarValoresMatriz();
         pintarGridPane(1);
         asignarValoresVectoresHorizontales();
         asignarValoresVectoresVerticales();
@@ -73,14 +71,14 @@ public class CuboController implements Initializable {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
-                FilaArriba[contador1] = cubo[i][j][0];
+                FilaArriba[contador1] = cubo.cubo[i][j][0];
                 contador1++;
             }
         }
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
-                FilaAbajo[contador2] = cubo[i][j][2];
+                FilaAbajo[contador2] = cubo.cubo[i][j][2];
                 contador2++;
             }
         }
@@ -102,7 +100,7 @@ public class CuboController implements Initializable {
 
         for (int i = 0; i < caras1.length; i++) { // Ciclo para recorrer las caras
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara
-                FilaVIzquierda[contador3] = cubo[caras1[i]][j][2];
+                FilaVIzquierda[contador3] = cubo.cubo[caras1[i]][j][2];
 
                 contador3++;
             }
@@ -110,7 +108,7 @@ public class CuboController implements Initializable {
 
         for (int i = 0; i < caras2.length; i++) { // Ciclo para recorrer las caras
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara
-                FilaVDerecha[contador4] = cubo[caras2[i]][j][0];
+                FilaVDerecha[contador4] = cubo.cubo[caras2[i]][j][0];
                 contador4++;
             }
         }
@@ -121,37 +119,6 @@ public class CuboController implements Initializable {
         ImprimirVector(FilaVDerecha);
     }
 
-    public void asignarValoresMatriz() { //Rellena la matriz con numeros del 1 al 6 para asignar colores.
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    switch (i) {
-                        case 0:
-                            cubo[i][j][k] = 1;
-                            break;
-                        case 1:
-                            cubo[i][j][k] = 2;
-                            aux[j][k] = 2;
-                            break;
-                        case 2:
-                            cubo[i][j][k] = 3;
-                            break;
-                        case 3:
-                            cubo[i][j][k] = 4;
-                            break;
-                        case 4:
-                            cubo[i][j][k] = 5;
-                            break;
-                        case 5:
-                            cubo[i][j][k] = 6;
-                            break;
-                    }
-                }
-            }
-        }
-        Accesib.guardarMatriz(cubo, Princip.nombre);
-    }
-
     @FXML
     private void Volver(ActionEvent event) throws IOException { //Vuelve a la pantalla principal
         App.setRoot("Principal");
@@ -159,204 +126,28 @@ public class CuboController implements Initializable {
 
     @FXML
     private void moverAbajo(ActionEvent event) {
-        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
-            for (int j = 0; j < 3; j++) {
-                aux[i][j] = cubo[1][i][j];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[1][j][k] = cubo[5][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[5][j][k] = cubo[3][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[3][j][k] = cubo[4][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[4][j][k] = aux[j][k];
-            }
-        }
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    System.out.print("| " + cubo[i][j][k]);
-                }
-                System.out.println("\n");
-            }
-            System.out.println("\n");
-        }
-
-        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
-            for (int j = 0; j < 3; j++) {
-                aux[i][j] = cubo[1][i][j];
-            }
-        }
-
+        cubo.moverAbajo();
         pintarGridPane(1);
         System.out.println("----------------------------");
     }
 
     @FXML
     private void moverArriba(ActionEvent event) {
-        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
-            for (int j = 0; j < 3; j++) {
-                aux[i][j] = cubo[1][i][j];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[1][j][k] = cubo[4][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[4][j][k] = cubo[3][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[3][j][k] = cubo[5][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[5][j][k] = aux[j][k];
-            }
-        }
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    System.out.print("| " + cubo[i][j][k]);
-                }
-                System.out.println("\n");
-            }
-            System.out.println("\n");
-        }
-
-        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
-            for (int j = 0; j < 3; j++) {
-                aux[i][j] = cubo[1][i][j];
-            }
-        }
-
+        cubo.moverArriba();
         pintarGridPane(1);
         System.out.println("----------------------------");
     }
 
     @FXML
     private void moverDerecha(ActionEvent event) {
-        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
-            for (int j = 0; j < 3; j++) {
-                aux[i][j] = cubo[1][i][j];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[1][j][k] = cubo[2][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[2][j][k] = cubo[3][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[3][j][k] = cubo[0][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[0][j][k] = aux[j][k];
-            }
-        }
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    System.out.print("| " + cubo[i][j][k]);
-                }
-                System.out.println("\n");
-            }
-            System.out.println("\n");
-        }
-
-        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
-            for (int j = 0; j < 3; j++) {
-                aux[i][j] = cubo[1][i][j];
-            }
-        }
-
+        cubo.moverDerecha();
         pintarGridPane(1);
         System.out.println("----------------------------");
     }
 
     @FXML
     private void moverIzq(ActionEvent event) {
-        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
-            for (int j = 0; j < 3; j++) {
-                aux[i][j] = cubo[1][i][j];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[1][j][k] = cubo[0][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[0][j][k] = cubo[3][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[3][j][k] = cubo[2][j][k];
-            }
-        }
-
-        for (int j = 0; j < 3; j++) {
-            for (int k = 0; k < 3; k++) {
-                cubo[2][j][k] = aux[j][k];
-            }
-        }
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 3; j++) {
-                for (int k = 0; k < 3; k++) {
-                    System.out.print("| " + cubo[i][j][k]);
-                }
-                System.out.println("\n");
-            }
-            System.out.println("\n");
-        }
-
-        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
-            for (int j = 0; j < 3; j++) {
-                aux[i][j] = cubo[1][i][j];
-            }
-        }
-
+        cubo.moverIzq();
         pintarGridPane(1);
         System.out.println("----------------------------");
     }
@@ -382,11 +173,11 @@ public class CuboController implements Initializable {
     public void pintarGridPane(int cara) {
         for (int fila = 0; fila < 3; fila++) {
             for (int columna = 0; columna < 3; columna++) {
-                int valor = cubo[1][fila][columna];
+                int valor = cubo.cubo[1][columna][fila];
                 Color color = obtenerColorPorValor(valor);
 
                 // Construye el selector CSS para buscar el nodo
-                String selector = "#R_" + fila + columna;
+                String selector = "#R_" + columna + fila;
 
                 // Busca el nodo en el GridPane usando el selector CSS
                 Node node = grd_Cubo.lookup(selector);
@@ -454,22 +245,19 @@ public class CuboController implements Initializable {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
-                cubo[i][j][0] = FilaArriba[contador1];
+                cubo.cubo[i][j][0] = FilaArriba[contador1];
                 contador1++;
             }
         }
 
-    }/*
-        
-      
-        }*/
+    }
 
     public void ActualizarMatrizConVectorFAB() {
         int contador2 = 0;
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
-                cubo[i][j][2] = FilaAbajo[contador2];
+                cubo.cubo[i][j][2] = FilaAbajo[contador2];
                 contador2++;
             }
         }
@@ -481,7 +269,7 @@ public class CuboController implements Initializable {
 
         for (int i = 0; i < 4; i++) { // Ciclo para recorrer las caras
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las filas en cada cara
-                cubo[caras[i]][2][j] = FilaVDerecha[contador4];
+                cubo.cubo[caras[i]][2][j] = FilaVDerecha[contador4];
                 contador4++;
             }
         }
@@ -493,7 +281,7 @@ public class CuboController implements Initializable {
 
         for (int i = 0; i < 4; i++) { // Ciclo para recorrer las caras
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las filas en cada cara
-                cubo[caras[i]][0][j] = FilaVIzquierda[contador3];
+                cubo.cubo[caras[i]][0][j] = FilaVIzquierda[contador3];
                 contador3++;
             }
         }
@@ -501,12 +289,12 @@ public class CuboController implements Initializable {
 
     @FXML
     private void Guardar(ActionEvent event) {
-        Accesib.guardarMatriz(cubo, Princip.nombre);
+        Accesib.guardarMatriz(cubo.cubo, Princip.nombre);
     }
 
     @FXML
     private void Reiniciar(ActionEvent event) {
-        asignarValoresMatriz();
+        cubo.asignarValoresMatriz();
         pintarGridPane(1);
     }
 
