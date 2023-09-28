@@ -12,9 +12,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
 
 //Universidad Nacional, Campus Coto
 //Desarrollado por:
@@ -56,18 +59,42 @@ public class CuboController implements Initializable {
     private Rectangle R_12;
     @FXML
     private Rectangle R_22;
+    @FXML
+    private GridPane grd_cara1;
+    @FXML
+    private GridPane grd_cara2;
+    @FXML
+    private GridPane grd_cara3;
+    @FXML
+    private GridPane grd_cara4;
+    @FXML
+    private GridPane grd_cara5;
+    @FXML
+    private GridPane grd_cara6;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cubo.asignarValoresMatriz();
-        pintarGridPane(1);
-        asignarValoresVectoresHorizontales();
-        asignarValoresVectoresVerticales();
+        asignarValoresVectorFilaAbajo();
+        asignarValoresVectorFilaArriba();
+        asignarValoresVectorFilaVDerecha();
+        asignarValoresVectorFilaVIzquierda();
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
+        
+       // pintarGridPane(1);
+        //asignarValoresVectoresHorizontales();
+        //asignarValoresVectoresVerticales();
     }
 
-    public void asignarValoresVectoresHorizontales() {
+    public void asignarValoresVectorFilaArriba() {
         int contador1 = 0;
-        int contador2 = 0;
+        
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
@@ -76,6 +103,19 @@ public class CuboController implements Initializable {
             }
         }
 
+
+        System.out.println("Vector FilaArriba");
+        ImprimirVector(FilaArriba);
+      
+
+    }
+
+
+    public void asignarValoresVectorFilaAbajo() {
+       
+        int contador2 = 0;
+
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 FilaAbajo[contador2] = cubo.cubo[i][j][2];
@@ -83,20 +123,120 @@ public class CuboController implements Initializable {
             }
         }
 
-        System.out.println("Vector FilaArriba");
-        ImprimirVector(FilaArriba);
         System.out.println("Vector FilaAbajo");
         ImprimirVector(FilaAbajo);
 
     }
 
-    public void asignarValoresVectoresVerticales() {
+
+public void PintarGridPane2(GridPane gp, int[][][] M, int cara) {
+    for (int row = 0; row < 3; row++) {
+        for (int col = 0; col < 3; col++) {
+            int valor = M[cara][col][row];
+            Rectangle rectangle = new Rectangle();
+            
+            // Configura el tamaño y el color del Rectangle según los valores
+            switch (valor) {
+                case 1:
+                    rectangle.setFill(Color.GREEN);
+                    break;
+                case 2:
+                    rectangle.setFill(Color.RED);
+                    break;
+                case 3:
+                    rectangle.setFill(Color.BLUE);
+                    break;
+                case 4:
+                    rectangle.setFill(Color.ORANGE);
+                    break;
+                case 5:
+                    rectangle.setFill(Color.WHITE);
+                    break;
+                case 6:
+                    rectangle.setFill(Color.YELLOW);
+                    break;
+                default:
+                    // Si el valor no coincide con ningún color conocido, usa un color predeterminado
+                    rectangle.setFill(Color.GRAY);
+                    break;
+            }
+            
+            // Configura el tamaño del Rectangle
+            double cellWidth = 130; // Ajusta el ancho de la celda según tus necesidades
+            double cellHeight = 130; // Ajusta la altura de la celda según tus necesidades
+            rectangle.setWidth(cellWidth);
+            rectangle.setHeight(cellHeight);
+            
+            // Configura el borde negro
+            rectangle.setStroke(Color.BLACK); // Color del borde
+            rectangle.setStrokeWidth(2); // Grosor del borde
+            rectangle.setStrokeType(StrokeType.INSIDE); // Tipo de trazo del borde (en el interior del rectángulo)
+
+            gp.add(rectangle, col, row);
+        }
+    }
+}
+
+
+public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
+    for (int row = 0; row < 3; row++) {
+        for (int col = 0; col < 3; col++) {
+            int valor = M[cara][col][row];
+            Rectangle rectangle = new Rectangle();
+            
+            // Configura el tamaño y el color del Rectangle según los valores
+            switch (valor) {
+                case 1:
+                    rectangle.setFill(Color.GREEN);
+                    break;
+                case 2:
+                    rectangle.setFill(Color.RED);
+                    break;
+                case 3:
+                    rectangle.setFill(Color.BLUE);
+                    break;
+                case 4:
+                    rectangle.setFill(Color.ORANGE);
+                    break;
+                case 5:
+                    rectangle.setFill(Color.WHITE);
+                    break;
+                case 6:
+                    rectangle.setFill(Color.YELLOW);
+                    break;
+                default:
+                    // Si el valor no coincide con ningún color conocido, usa un color predeterminado
+                    rectangle.setFill(Color.GRAY);
+                    break;
+            }
+            
+            // Configura el tamaño del Rectangle
+            double cellWidth = 30; // Ajusta el ancho de la celda según tus necesidades
+            double cellHeight = 30; // Ajusta la altura de la celda según tus necesidades
+            rectangle.setWidth(cellWidth);
+            rectangle.setHeight(cellHeight);
+            
+            // Configura el borde negro
+            rectangle.setStroke(Color.BLACK); // Color del borde
+            rectangle.setStrokeWidth(2); // Grosor del borde
+            rectangle.setStrokeType(StrokeType.INSIDE); // Tipo de trazo del borde (en el interior del rectángulo)
+
+            gp.add(rectangle, col, row);
+        }
+    }
+}
+
+
+
+
+
+    public void asignarValoresVectorFilaVIzquierda() {
 
         int contador3 = 0;
-        int contador4 = 0;
+
 
         int caras1[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
-        int caras2[] = {1, 4, 3, 5};
+       
 
         for (int i = 0; i < caras1.length; i++) { // Ciclo para recorrer las caras
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara
@@ -106,6 +246,19 @@ public class CuboController implements Initializable {
             }
         }
 
+
+        System.out.println("Vector FilaIzquierda");
+        ImprimirVector(FilaVIzquierda);
+     
+    }
+    
+     public void asignarValoresVectorFilaVDerecha() {
+
+        
+        int contador4 = 0;
+        int caras2[] = {1, 4, 3, 5};
+
+
         for (int i = 0; i < caras2.length; i++) { // Ciclo para recorrer las caras
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara
                 FilaVDerecha[contador4] = cubo.cubo[caras2[i]][j][0];
@@ -113,8 +266,7 @@ public class CuboController implements Initializable {
             }
         }
 
-        System.out.println("Vector FilaIzquierda");
-        ImprimirVector(FilaVIzquierda);
+    
         System.out.println("Vector FilaDerecha");
         ImprimirVector(FilaVDerecha);
     }
@@ -127,28 +279,56 @@ public class CuboController implements Initializable {
     @FXML
     private void moverAbajo(ActionEvent event) {
         cubo.moverAbajo();
-        pintarGridPane(1);
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
+        //pintarGridPane(1);
         System.out.println("----------------------------");
     }
 
     @FXML
     private void moverArriba(ActionEvent event) {
         cubo.moverArriba();
-        pintarGridPane(1);
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
+        //pintarGridPane(1);
         System.out.println("----------------------------");
     }
 
     @FXML
     private void moverDerecha(ActionEvent event) {
         cubo.moverDerecha();
-        pintarGridPane(1);
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
+        //pintarGridPane(1);
         System.out.println("----------------------------");
     }
 
     @FXML
     private void moverIzq(ActionEvent event) {
         cubo.moverIzq();
-        pintarGridPane(1);
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
+        //pintarGridPane(1);
         System.out.println("----------------------------");
     }
 
@@ -191,13 +371,10 @@ public class CuboController implements Initializable {
     }
 
     public void ImprimirVector(int vector[]) {
-
         for (int i = 0; i < vector.length; i++) {
 
             System.out.println("|" + vector[i] + "|");
-
         }
-
     }
 
     public void CorrimientoCircularDerecha(int[] vector, int posiciones) {
@@ -216,6 +393,13 @@ public class CuboController implements Initializable {
             // Si el número de posiciones a correr es mayor que la longitud del vector, puedes manejarlo como desees (por ejemplo, lanzar una excepción).
             System.out.println("Error: El número de posiciones a correr es mayor que la longitud del vector.");
         }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     public void CorrimientoCircularIzquierda(int[] vector, int posiciones) {
@@ -234,14 +418,19 @@ public class CuboController implements Initializable {
             // Si el número de posiciones a correr es mayor que la longitud del vector, puedes manejarlo como desees (por ejemplo, lanzar una excepción).
             System.out.println("Error: El número de posiciones a correr es mayor que la longitud del vector.");
         }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     public void ActualizarMatrizConVectorFAR() {
 
         int contador1 = 0;
 
-        int contador3 = 0;
-        int contador4 = 0;
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
@@ -295,62 +484,198 @@ public class CuboController implements Initializable {
     @FXML
     private void Reiniciar(ActionEvent event) {
         cubo.asignarValoresMatriz();
-        pintarGridPane(1);
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     @FXML
     private void GirarFilaArribaDerecha(ActionEvent event) {
         CorrimientoCircularDerecha(FilaArriba, 3);
         ActualizarMatrizConVectorFAR();
-        pintarGridPane(1);
+        //pintarGridPane(1);
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo.cubo[i][k][j]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     @FXML
     private void GirarFIlaArribaIzquierda(ActionEvent event) {
+        
         CorrimientoCircularIzquierda(FilaArriba, 3);
         ActualizarMatrizConVectorFAR();
-        pintarGridPane(1);
+        //pintarGridPane(1);
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo.cubo[i][k][j]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     @FXML
     private void GirarFilaAbajoDerecha(ActionEvent event) {
         CorrimientoCircularDerecha(FilaAbajo, 3);
         ActualizarMatrizConVectorFAB();
-        pintarGridPane(1);
+        //pintarGridPane(1);
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo.cubo[i][k][j]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     @FXML
     private void GirarFIlaVerticalDerechaArriba(ActionEvent event) {
         CorrimientoCircularDerecha(FilaVDerecha, 3);
         ActualizarMatrizConVectorFVD();
-        pintarGridPane(1);
+        //pintarGridPane(1);
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo.cubo[i][k][j]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     @FXML
     private void GirarFilaVerticalIzquierdaAbjo(ActionEvent event) {
         CorrimientoCircularIzquierda(FilaVIzquierda, 3);
         ActualizarMatrizConVectorFVI();
-        pintarGridPane(1);
+        //pintarGridPane(1);
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo.cubo[i][k][j]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     @FXML
     private void GirarFilaVerticalDerechaAbajo(ActionEvent event) {
         CorrimientoCircularIzquierda(FilaVDerecha, 3);
         ActualizarMatrizConVectorFVD();
-        pintarGridPane(1);
+        //pintarGridPane(1);
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo.cubo[i][k][j]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     @FXML
     private void GirarFIlaAbajoIzquierda(ActionEvent event) {
         CorrimientoCircularIzquierda(FilaAbajo, 3);
         ActualizarMatrizConVectorFAB();
-        pintarGridPane(1);
+        //pintarGridPane(1);
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo.cubo[i][k][j]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 
     @FXML
     private void GirarFilaVerticalIzquierda(ActionEvent event) {
+        
         CorrimientoCircularDerecha(FilaVIzquierda, 3);
         ActualizarMatrizConVectorFVI();
-        pintarGridPane(1);
+        //pintarGridPane(1);
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + cubo.cubo[i][k][j]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+        PintarGridPane2(grd_Cubo,cubo.cubo,1);
+        PintarGridPane3(grd_cara1,cubo.cubo,0);
+        PintarGridPane3(grd_cara2,cubo.cubo,1);
+        PintarGridPane3(grd_cara3,cubo.cubo,2);
+        PintarGridPane3(grd_cara4,cubo.cubo,3);
+        PintarGridPane3(grd_cara5,cubo.cubo,4);
+        PintarGridPane3(grd_cara6,cubo.cubo,5);
     }
 }
