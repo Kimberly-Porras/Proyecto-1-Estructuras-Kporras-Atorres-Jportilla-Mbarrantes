@@ -497,6 +497,7 @@ public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
     private void GirarFilaArribaDerecha(ActionEvent event) {
         CorrimientoCircularDerecha(FilaArriba, 3);
         ActualizarMatrizConVectorFAR();
+        cubo.trasponerMatriz(4, 1);
         //pintarGridPane(1);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
@@ -514,6 +515,7 @@ public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
         PintarGridPane3(grd_cara4,cubo.cubo,3);
         PintarGridPane3(grd_cara5,cubo.cubo,4);
         PintarGridPane3(grd_cara6,cubo.cubo,5);
+        
     }
 
     @FXML
@@ -521,6 +523,7 @@ public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
         
         CorrimientoCircularIzquierda(FilaArriba, 3);
         ActualizarMatrizConVectorFAR();
+        cubo.trasponerMatriz(4, 0);
         //pintarGridPane(1);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
@@ -544,6 +547,7 @@ public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
     private void GirarFilaAbajoDerecha(ActionEvent event) {
         CorrimientoCircularDerecha(FilaAbajo, 3);
         ActualizarMatrizConVectorFAB();
+        cubo.trasponerMatriz(5, 0);
         //pintarGridPane(1);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
@@ -567,6 +571,7 @@ public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
     private void GirarFIlaVerticalDerechaArriba(ActionEvent event) {
         CorrimientoCircularDerecha(FilaVDerecha, 3);
         ActualizarMatrizConVectorFVD();
+        cubo.trasponerMatriz(2, 1);
         //pintarGridPane(1);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
@@ -590,6 +595,7 @@ public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
     private void GirarFilaVerticalIzquierdaAbjo(ActionEvent event) {
         CorrimientoCircularIzquierda(FilaVIzquierda, 3);
         ActualizarMatrizConVectorFVI();
+        cubo.trasponerMatriz(0, 0);
         //pintarGridPane(1);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
@@ -613,6 +619,7 @@ public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
     private void GirarFilaVerticalDerechaAbajo(ActionEvent event) {
         CorrimientoCircularIzquierda(FilaVDerecha, 3);
         ActualizarMatrizConVectorFVD();
+        cubo.trasponerMatriz(2, 1);
         //pintarGridPane(1);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
@@ -636,6 +643,7 @@ public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
     private void GirarFIlaAbajoIzquierda(ActionEvent event) {
         CorrimientoCircularIzquierda(FilaAbajo, 3);
         ActualizarMatrizConVectorFAB();
+        cubo.trasponerMatriz(5, 1);
         //pintarGridPane(1);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
@@ -660,6 +668,7 @@ public void PintarGridPane3(GridPane gp, int[][][] M, int cara) {
         
         CorrimientoCircularDerecha(FilaVIzquierda, 3);
         ActualizarMatrizConVectorFVI();
+        cubo.trasponerMatriz(0, 1);
         //pintarGridPane(1);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
