@@ -4,6 +4,7 @@
  */
 package controller.proyecto;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,27 +46,24 @@ public class PrincipalController implements Initializable {
     }
 
     @FXML
-    private void OnBtnJugar(MouseEvent event) {
-        
-        nombre = txt_nombreJugador.getText();
-        
-        // Obtener el nombre del jugador ingresado
-        String nombreJugador = txt_nombreJugador.getText();
-
+    private void OnBtnJugar(MouseEvent event)  throws IOException {
         try {
-            // Llamar al método de la clase Accesibilidad para generar el archivo
-            Accesibilidad.generarArchivoTexto(nombreJugador);
+            if (txt_nombreJugador.getText().isEmpty()) {
+                mostrarAlerta("Nickname Vacio", "Debe digitar un nickname para jugar");
+            } else {
+                boolean verificar = Accesibilidad.verificarNombreJugador(txt_nombreJugador.getText());
 
-            // Aquí puedes navegar a la siguiente pantalla o realizar otras acciones según tu lógica de juego
-            try {
-                App.setRoot("Cubo");
-            } catch (IOException e) {
-                e.printStackTrace();
-                // Manejar errores de navegación de pantalla aquí
+                if (verificar) {
+                    mostrarAlerta("Nombre existente", "El nombre que digito esta asociado a otro jugador.");
+                } else {
+                    nombre = txt_nombreJugador.getText();
+                    App.setRoot("Cubo");
+                }
             }
-        } catch (IOException e) {
-            // Mostrar una alerta de que el nombre ya existe
-            mostrarAlerta("Nombre Existente", e.getMessage());
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
     
@@ -80,5 +78,8 @@ public class PrincipalController implements Initializable {
 
     @FXML
     private void ContinuarJuego(ActionEvent event) {
+        if (txt_nombreJugador.getText().isEmpty()) {
+            mostrarAlerta("Nickname Vacio", "Debe digitar un nickname para jugar");
+        }
     }   
 }

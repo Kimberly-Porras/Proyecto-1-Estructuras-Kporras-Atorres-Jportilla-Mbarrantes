@@ -6,6 +6,7 @@ package controller.proyecto;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -19,23 +20,13 @@ import java.io.IOException;
 
 public class Accesibilidad {
 
-    public static boolean verificarNombreJugador(String nombreJugador) {
-        // Ruta completa al directorio
-        String directorio = "D:\\Informacion\\Documents\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
-
-        // Verificar si el archivo con el mismo nombre ya existe
-        File archivo = new File(directorio + nombreJugador + ".txt");
-        return archivo.exists();
-    }
-
-    public static void generarArchivoTexto(String nombreJugador) throws IOException {
-        // Ruta completa al directorio
-        String directorio = "D:\\Informacion\\Documents\\GitHub\\Proyecto-1-Estructuras-Kporras-Atorres-Jportilla-Mbarrantes\\ProyectoNuevaVersion\\";
-
-        // Verificar si el archivo con el mismo nombre ya existe
-        if (verificarNombreJugador(nombreJugador)) {
-            throw new IOException("El archivo " + nombreJugador + ".txt" + " ya existe en el directorio.");
+    public static boolean verificarNombreJugador(String nombreJugador) throws FileNotFoundException {
+        File archivo = new File(nombreJugador + ".txt");
+        
+        if(archivo.exists()){
+            return true;
         }
+        return false;
     }
     
     public void guardarMatriz(int valoresCubo[][][], String nombre) { //Guarda la matriz en un txt
