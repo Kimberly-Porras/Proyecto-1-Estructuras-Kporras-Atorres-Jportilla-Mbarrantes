@@ -317,4 +317,18 @@ public class Cubo {
             }
         }
     }
+   public void imprimirMatriz(int mt[][][]){
+  for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    System.out.print("| " + mt[i][k][j]);
+                }
+                System.out.println("\n");
+            }
+            System.out.println("\n");
+        }
+
+
+}
+
 }
