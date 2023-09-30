@@ -88,7 +88,7 @@ public class CuboController implements Initializable {
         int contador1 = 0;
 
         cubo.imprimirMatriz(cubo.cubo);
-
+        
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 FilaArriba[contador1] = cubo.cubo[i][0][j];
@@ -104,7 +104,7 @@ public class CuboController implements Initializable {
         int contador2 = 0;
 
         cubo.imprimirMatriz(cubo.cubo);
-
+        
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 FilaAbajo[contador2] = cubo.cubo[i][j][2];
@@ -124,7 +124,7 @@ public class CuboController implements Initializable {
         int caras1[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
 
         cubo.imprimirMatriz(cubo.cubo);
-
+        
         for (int i = 0; i < caras1.length; i++) { // Ciclo para recorrer las caras          // revisar
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara
                 FilaVIzquierda[contador3] = cubo.cubo[caras1[i]][2][j];
@@ -143,7 +143,7 @@ public class CuboController implements Initializable {
         int caras2[] = {1, 4, 3, 5};
 
         cubo.imprimirMatriz(cubo.cubo);
-
+        
         for (int i = 0; i < caras2.length; i++) { // Ciclo para recorrer las caras
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara    // revisar
                 FilaVDerecha[contador4] = cubo.cubo[caras2[i]][0][j];
@@ -160,7 +160,7 @@ public class CuboController implements Initializable {
         int contador1 = 0;
 
         cubo.imprimirMatriz(cubo.cubo);
-
+        
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 cubo.cubo[i][j][0] = FilaArriba[contador1];
@@ -176,14 +176,14 @@ public class CuboController implements Initializable {
         int contador2 = 0;
 
         cubo.imprimirMatriz(cubo.cubo);
-
+        
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 cubo.cubo[i][j][2] = FilaAbajo[contador2];
                 contador2++;
             }
         }
-
+        
         System.out.println("~~~~~~~~~");
         cubo.imprimirMatriz(cubo.cubo);
     }
@@ -193,14 +193,14 @@ public class CuboController implements Initializable {
         int caras[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
 
         cubo.imprimirMatriz(cubo.cubo);
-
+        
         for (int i = 0; i < 4; i++) { // Ciclo para recorrer las caras                    //filaVericalDerecha//revisar
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las filas en cada cara
                 cubo.cubo[caras[i]][2][j] = FilaVDerecha[contador4];
                 contador4++;
             }
         }
-
+        
         System.out.println("~~~~~~~~~");
         cubo.imprimirMatriz(cubo.cubo);
     }
@@ -208,12 +208,12 @@ public class CuboController implements Initializable {
     public void ActualizarMatrizConVectorFVI() {
         int contador3 = 0;
         int caras[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
-
+        
         cubo.imprimirMatriz(cubo.cubo);
-
+        
         for (int i = 0; i < 4; i++) { // Ciclo para recorrer las caras                 //filaVericalIzquierda//revisar
             for (int j = 0; j < 3; j++) { // Ciclo para recorrer las filas en cada cara
-
+                
                 cubo.cubo[caras[i]][0][j] = FilaVIzquierda[contador3];
                 contador3++;
             }
@@ -380,28 +380,6 @@ public class CuboController implements Initializable {
         for (int i = 0; i < vector.length; i++) {
             System.out.print("|" + vector[i] + "|-");
         }
-    }
-
-    public void RealizarAccion() {
-
-        // caras / filas / columnas
-        // 1 = verde, 2 = rojo, 3 = azul, 4 = anaranjado, 5 = blanco, 6 amararillo
-        int cuboaux[][][] = new int[6][3][3];
-        int cuboactual[][][] = new int[6][3][3];
-        cuboaux = cubo.getCubo();
-        cuboactual = cubo.getCubo();
-        
-        int car, fil, col;
-        for (car = 0; car < 6; car++) {
-            for (fil = 0; fil < 3; fil++) {
-                for (col = 0; col < 3; col++) {
-                    //cubo.
-                }
-            }
-        }
-
-        // cuando se mueve arriba a la derecha se mueven las caras, segun la fila
-        // 
     }
 
     public void CorrimientoCircularDerecha(int[] vector, int posiciones) {
@@ -670,6 +648,7 @@ public class CuboController implements Initializable {
         cubo.trasponerMatriz(0, 1);
 
         //cubo.imprimirMatriz(cubo.cubo);
+
         PintarGridPane2(grd_Cubo, cubo.cubo, 1);
         PintarGridPane3(grd_cara1, cubo.cubo, 0);
         PintarGridPane3(grd_cara2, cubo.cubo, 1);
