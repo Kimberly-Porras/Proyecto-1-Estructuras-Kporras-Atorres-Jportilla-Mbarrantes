@@ -22,7 +22,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Principal"), 1501, 797);
+        scene = new Scene(loadFXML("Cubo"), 1501, 797);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("Cubo Rubik");

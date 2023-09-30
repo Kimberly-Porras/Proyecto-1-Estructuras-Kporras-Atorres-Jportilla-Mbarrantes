@@ -6,16 +6,16 @@ package controller.proyecto;
 
 //Universidad Nacional, Campus Coto
 //Desarrollado por:
-    //Joxan Portilla Hernandez
-    //Melani Barrantes Hidalgo
-    //Alberto Torres
-    //Kimberly Porras
+//Joxan Portilla Hernandez
+//Melani Barrantes Hidalgo
+//Alberto Torres
+//Kimberly Porras
 //2023
-
 public class Cubo {
+
     PrincipalController Princip = new PrincipalController();
     Accesibilidad Accesib = new Accesibilidad();
-    
+
     int cubo[][][] = new int[6][3][3];
     int aux[][] = new int[3][3];
 
@@ -42,7 +42,7 @@ public class Cubo {
     public String toString() {
         return "Cubo{" + "cubo=" + cubo + ", aux=" + aux + '}';
     }
-    
+
     public void asignarValoresMatriz() { //Rellena la matriz con numeros del 1 al 6 para asignar colores.
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
@@ -71,11 +71,11 @@ public class Cubo {
                 }
             }
         }
-        Accesib.guardarMatriz(cubo, Princip.nombre);
+        //Accesib.guardarMatriz(cubo, Princip.nombre);
     }
-    
-    public void moverAbajo(){
-     for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
+
+    public void moverAbajo() {
+        for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
             for (int j = 0; j < 3; j++) {
                 aux[j][i] = cubo[1][j][i];
             }
@@ -104,10 +104,10 @@ public class Cubo {
                 cubo[5][k][j] = aux[k][j];
             }
         }
-        
+
         trasponerMatriz(0, 0);
         trasponerMatriz(2, 1);
-        
+
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 3; k++) {
@@ -122,11 +122,11 @@ public class Cubo {
             for (int j = 0; j < 3; j++) {
                 aux[i][j] = cubo[1][i][j];
             }
-        }   
+        }
     }
-    
-    public void moverArriba(){
-        
+
+    public void moverArriba() {
+
         for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
             for (int j = 0; j < 3; j++) {
                 aux[j][i] = cubo[1][j][i];
@@ -172,10 +172,10 @@ public class Cubo {
             for (int j = 0; j < 3; j++) {
                 aux[i][j] = cubo[1][i][j];
             }
-        }    
+        }
     }
-    
-    public void moverDerecha(){
+
+    public void moverDerecha() {
         for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
             for (int j = 0; j < 3; j++) {
                 aux[i][j] = cubo[1][i][j];
@@ -205,7 +205,7 @@ public class Cubo {
                 cubo[0][j][k] = aux[j][k];
             }
         }
-        
+
         trasponerMatriz(4, 1);
         trasponerMatriz(5, 0);
         for (int i = 0; i < 6; i++) {
@@ -224,8 +224,8 @@ public class Cubo {
             }
         }
     }
-    
-    public void moverIzq(){
+
+    public void moverIzq() {
         for (int i = 0; i < 3; i++) { //Cara presentable pasarla a aux para mover matriz
             for (int j = 0; j < 3; j++) {
                 aux[i][j] = cubo[1][i][j];
@@ -273,6 +273,7 @@ public class Cubo {
             }
         }
     }
+
     public static int[][] transponerDerecha(int[][] matriz) {
         int filas = matriz.length;
         int columnas = matriz[0].length;
@@ -298,27 +299,30 @@ public class Cubo {
         }
         return matrizTranspuesta1;
     }
-    
-    public void trasponerMatriz(int cara, int direccion){
-        int[][] matrizAux= new int[3][3];
+
+    public void trasponerMatriz(int cara, int direccion) {
+        int[][] matrizAux = new int[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                matrizAux[j][i]= cubo[cara][j][i]; 
+                matrizAux[j][i] = cubo[cara][j][i];
             }
         }
-        if(direccion == 0){
+        if (direccion == 0) {
             matrizAux = transponerDerecha(matrizAux);
+        } else {
+            matrizAux = transponerIzquierda(matrizAux);
         }
-        else{matrizAux = transponerIzquierda(matrizAux);}
-        
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                cubo[cara][i][j] = matrizAux[i][j]; 
+                cubo[cara][i][j] = matrizAux[i][j];
             }
         }
     }
-   public void imprimirMatriz(int mt[][][]){
-  for (int i = 0; i < 6; i++) {
+
+    public void imprimirMatriz(int mt[][][]) {
+        System.out.println("\n");
+        for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 3; k++) {
                     System.out.print("| " + mt[i][k][j]);
@@ -327,8 +331,5 @@ public class Cubo {
             }
             System.out.println("\n");
         }
-
-
-}
-
+    }
 }

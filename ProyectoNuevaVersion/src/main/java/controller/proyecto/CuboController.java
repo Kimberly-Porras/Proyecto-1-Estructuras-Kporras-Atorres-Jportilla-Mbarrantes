@@ -87,9 +87,11 @@ public class CuboController implements Initializable {
     public void asignarValoresVectorFilaArriba() {
         int contador1 = 0;
 
+        cubo.imprimirMatriz(cubo.cubo);
+        
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
-                FilaArriba[contador1] = cubo.cubo[i][j][0];
+                FilaArriba[contador1] = cubo.cubo[i][0][j];
                 contador1++;
             }
         }
@@ -101,6 +103,8 @@ public class CuboController implements Initializable {
     public void asignarValoresVectorFilaAbajo() {
         int contador2 = 0;
 
+        cubo.imprimirMatriz(cubo.cubo);
+        
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 3; j++) {
                 FilaAbajo[contador2] = cubo.cubo[i][j][2];
@@ -111,6 +115,111 @@ public class CuboController implements Initializable {
         System.out.println("Vector FilaAbajo");
         ImprimirVector(FilaAbajo);
 
+    }
+
+    public void asignarValoresVectorFilaVIzquierda() {
+
+        int contador3 = 0;
+
+        int caras1[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
+
+        cubo.imprimirMatriz(cubo.cubo);
+        
+        for (int i = 0; i < caras1.length; i++) { // Ciclo para recorrer las caras          // revisar
+            for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara
+                FilaVIzquierda[contador3] = cubo.cubo[caras1[i]][2][j];
+
+                contador3++;
+            }
+        }
+
+        System.out.println("Vector FilaIzquierda");
+        ImprimirVector(FilaVIzquierda);
+    }
+
+    public void asignarValoresVectorFilaVDerecha() {
+
+        int contador4 = 0;
+        int caras2[] = {1, 4, 3, 5};
+
+        cubo.imprimirMatriz(cubo.cubo);
+        
+        for (int i = 0; i < caras2.length; i++) { // Ciclo para recorrer las caras
+            for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara    // revisar
+                FilaVDerecha[contador4] = cubo.cubo[caras2[i]][0][j];
+                contador4++;
+            }
+        }
+
+        System.out.println("Vector FilaDerecha");
+        ImprimirVector(FilaVDerecha);
+    }
+
+    public void ActualizarMatrizConVectorFAR() {
+
+        int contador1 = 0;
+
+        cubo.imprimirMatriz(cubo.cubo);
+        
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                cubo.cubo[i][j][0] = FilaArriba[contador1];
+                contador1++;
+            }
+        }
+
+        System.out.println("~~~~~~~~~");
+        cubo.imprimirMatriz(cubo.cubo);
+    }
+
+    public void ActualizarMatrizConVectorFAB() {
+        int contador2 = 0;
+
+        cubo.imprimirMatriz(cubo.cubo);
+        
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 3; j++) {
+                cubo.cubo[i][j][2] = FilaAbajo[contador2];
+                contador2++;
+            }
+        }
+        
+        System.out.println("~~~~~~~~~");
+        cubo.imprimirMatriz(cubo.cubo);
+    }
+
+    public void ActualizarMatrizConVectorFVD() {
+        int contador4 = 0;
+        int caras[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
+
+        cubo.imprimirMatriz(cubo.cubo);
+        
+        for (int i = 0; i < 4; i++) { // Ciclo para recorrer las caras                    //filaVericalDerecha//revisar
+            for (int j = 0; j < 3; j++) { // Ciclo para recorrer las filas en cada cara
+                cubo.cubo[caras[i]][2][j] = FilaVDerecha[contador4];
+                contador4++;
+            }
+        }
+        
+        System.out.println("~~~~~~~~~");
+        cubo.imprimirMatriz(cubo.cubo);
+    }
+
+    public void ActualizarMatrizConVectorFVI() {
+        int contador3 = 0;
+        int caras[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
+        
+        cubo.imprimirMatriz(cubo.cubo);
+        
+        for (int i = 0; i < 4; i++) { // Ciclo para recorrer las caras                 //filaVericalIzquierda//revisar
+            for (int j = 0; j < 3; j++) { // Ciclo para recorrer las filas en cada cara
+                
+                cubo.cubo[caras[i]][0][j] = FilaVIzquierda[contador3];
+                contador3++;
+            }
+        }
+        System.out.println("~~~~~~~~~");
+        cubo.imprimirMatriz(cubo.cubo);
     }
 
     public void PintarGridPane2(GridPane gp, int[][][] M, int cara) {
@@ -209,41 +318,6 @@ public class CuboController implements Initializable {
         }
     }
 
-    public void asignarValoresVectorFilaVIzquierda() {
-
-        int contador3 = 0;
-
-        int caras1[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
-
-        for (int i = 0; i < caras1.length; i++) { // Ciclo para recorrer las caras          // revisar
-            for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara
-                FilaVIzquierda[contador3] = cubo.cubo[caras1[i]][2][j];
-
-                contador3++;
-            }
-        }
-
-        System.out.println("Vector FilaIzquierda");
-        ImprimirVector(FilaVIzquierda);
-
-    }
-
-    public void asignarValoresVectorFilaVDerecha() {
-
-        int contador4 = 0;
-        int caras2[] = {1, 4, 3, 5};
-
-        for (int i = 0; i < caras2.length; i++) { // Ciclo para recorrer las caras
-            for (int j = 0; j < 3; j++) { // Ciclo para recorrer las posiciones en cada cara    // revisar
-                FilaVDerecha[contador4] = cubo.cubo[caras2[i]][0][j];
-                contador4++;
-            }
-        }
-
-        System.out.println("Vector FilaDerecha");
-        ImprimirVector(FilaVDerecha);
-    }
-
     @FXML
     private void Volver(ActionEvent event) throws IOException { //Vuelve a la pantalla principal
         App.setRoot("Principal");
@@ -302,9 +376,9 @@ public class CuboController implements Initializable {
     }
 
     public void ImprimirVector(int vector[]) {
+        System.out.println("" + vector.length);
         for (int i = 0; i < vector.length; i++) {
-
-            System.out.println("|" + vector[i] + "|");
+            System.out.print("|" + vector[i] + "|-");
         }
     }
 
@@ -358,54 +432,6 @@ public class CuboController implements Initializable {
         PintarGridPane3(grd_cara6, cubo.cubo, 5);
     }
 
-    public void ActualizarMatrizConVectorFAR() {
-
-        int contador1 = 0;
-
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 3; j++) {
-                cubo.cubo[i][j][0] = FilaArriba[contador1];
-                contador1++;
-            }
-        }
-
-    }
-
-    public void ActualizarMatrizConVectorFAB() {
-        int contador2 = 0;
-
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 3; j++) {
-                cubo.cubo[i][j][2] = FilaAbajo[contador2];
-                contador2++;
-            }
-        }
-    }
-
-    public void ActualizarMatrizConVectorFVD() {
-        int contador4 = 0;
-        int caras[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
-
-        for (int i = 0; i < 4; i++) { // Ciclo para recorrer las caras                    //filaVericalDerecha//revisar
-            for (int j = 0; j < 3; j++) { // Ciclo para recorrer las filas en cada cara
-                cubo.cubo[caras[i]][2][j] = FilaVDerecha[contador4];
-                contador4++;
-            }
-        }
-    }
-
-    public void ActualizarMatrizConVectorFVI() {
-        int contador3 = 0;
-        int caras[] = {1, 4, 3, 5}; // Caras que deseas llenar en ese orden
-
-        for (int i = 0; i < 4; i++) { // Ciclo para recorrer las caras                 //filaVericalIzquierda//revisar
-            for (int j = 0; j < 3; j++) { // Ciclo para recorrer las filas en cada cara
-                cubo.cubo[caras[i]][0][j] = FilaVIzquierda[contador3];
-                contador3++;
-            }
-        }
-    }
-
     @FXML
     private void Guardar(ActionEvent event) {
         Accesib.guardarMatriz(cubo.cubo, Princip.nombre);
@@ -426,22 +452,20 @@ public class CuboController implements Initializable {
     @FXML
     private void GirarFilaArribaDerecha(ActionEvent event) {
 
-        vaciarVector(FilaArriba);
-        asignarValoresVectorFilaArriba();
-
+        //vaciarVector(FilaArriba);
+        //asignarValoresVectorFilaArriba();
         CorrimientoCircularDerecha(FilaArriba, 3);
         ActualizarMatrizConVectorFAR();
 
-        vaciarVector(FilaVIzquierda);
-        vaciarVector(FilaAbajo);
-        vaciarVector(FilaVDerecha);
-
-        asignarValoresVectorFilaVIzquierda();
-        asignarValoresVectorFilaAbajo();
-        asignarValoresVectorFilaVDerecha();
-
+        //vaciarVector(FilaVIzquierda);
+        //vaciarVector(FilaAbajo);
+        //vaciarVector(FilaVDerecha);
+        //asignarValoresVectorFilaVIzquierda();
+        //asignarValoresVectorFilaAbajo();
+        //asignarValoresVectorFilaVDerecha();
+        ImprimirVector(FilaArriba);
         cubo.trasponerMatriz(4, 1);
-        cubo.imprimirMatriz(cubo.cubo);
+        //cubo.imprimirMatriz(cubo.cubo);
         PintarGridPane2(grd_Cubo, cubo.cubo, 1);
         PintarGridPane3(grd_cara1, cubo.cubo, 0);
         PintarGridPane3(grd_cara2, cubo.cubo, 1);
@@ -453,21 +477,20 @@ public class CuboController implements Initializable {
 
     @FXML
     private void GirarFIlaArribaIzquierda(ActionEvent event) {
-        vaciarVector(FilaArriba);
-        asignarValoresVectorFilaArriba();
+        //vaciarVector(FilaArriba);
+        //asignarValoresVectorFilaArriba();
         CorrimientoCircularIzquierda(FilaArriba, 3);
         ActualizarMatrizConVectorFAR();
 
-        vaciarVector(FilaVIzquierda);
-        vaciarVector(FilaAbajo);
-        vaciarVector(FilaVDerecha);
-
-        asignarValoresVectorFilaVIzquierda();
-        asignarValoresVectorFilaAbajo();
-        asignarValoresVectorFilaVDerecha();
-
+        //vaciarVector(FilaVIzquierda);
+        //vaciarVector(FilaAbajo);
+        //vaciarVector(FilaVDerecha);
+        //asignarValoresVectorFilaVIzquierda();
+        //asignarValoresVectorFilaAbajo();
+        //asignarValoresVectorFilaVDerecha();
+        ImprimirVector(FilaArriba);
         cubo.trasponerMatriz(4, 0);
-        cubo.imprimirMatriz(cubo.cubo);
+        //cubo.imprimirMatriz(cubo.cubo);
         PintarGridPane2(grd_Cubo, cubo.cubo, 1);
         PintarGridPane3(grd_cara1, cubo.cubo, 0);
         PintarGridPane3(grd_cara2, cubo.cubo, 1);
@@ -480,21 +503,20 @@ public class CuboController implements Initializable {
     @FXML
     private void GirarFilaAbajoDerecha(ActionEvent event) {
 
-        vaciarVector(FilaAbajo);
-        asignarValoresVectorFilaAbajo();
+        //vaciarVector(FilaAbajo);
+        //asignarValoresVectorFilaAbajo();
         CorrimientoCircularDerecha(FilaAbajo, 3);
         ActualizarMatrizConVectorFAB();
 
-        vaciarVector(FilaVIzquierda);
-        vaciarVector(FilaArriba);
-        vaciarVector(FilaVDerecha);
-
-        asignarValoresVectorFilaArriba();
-        asignarValoresVectorFilaVIzquierda();
-        asignarValoresVectorFilaVDerecha();
-
+        //vaciarVector(FilaVIzquierda);
+        //vaciarVector(FilaArriba);
+        //vaciarVector(FilaVDerecha);
+        //asignarValoresVectorFilaArriba();
+        //asignarValoresVectorFilaVIzquierda();
+        //asignarValoresVectorFilaVDerecha();
+        ImprimirVector(FilaAbajo);
         cubo.trasponerMatriz(5, 0);
-        cubo.imprimirMatriz(cubo.cubo);
+        //cubo.imprimirMatriz(cubo.cubo);
         PintarGridPane2(grd_Cubo, cubo.cubo, 1);
         PintarGridPane3(grd_cara1, cubo.cubo, 0);
         PintarGridPane3(grd_cara2, cubo.cubo, 1);
@@ -507,21 +529,20 @@ public class CuboController implements Initializable {
     @FXML
     private void GirarFIlaVerticalDerechaArriba(ActionEvent event) { //revisar
 
-        vaciarVector(FilaVDerecha);
-        asignarValoresVectorFilaVDerecha();
+        //vaciarVector(FilaVDerecha);
+        //asignarValoresVectorFilaVDerecha();
         CorrimientoCircularDerecha(FilaVDerecha, 3);
         ActualizarMatrizConVectorFVD();
 
-        vaciarVector(FilaVIzquierda);
-        vaciarVector(FilaArriba);
-        vaciarVector(FilaAbajo);
-
-        asignarValoresVectorFilaArriba();
-        asignarValoresVectorFilaAbajo();
-        asignarValoresVectorFilaVIzquierda();
-
+        //vaciarVector(FilaVIzquierda);
+        //vaciarVector(FilaArriba);
+        //vaciarVector(FilaAbajo);
+        //asignarValoresVectorFilaArriba();
+        //asignarValoresVectorFilaAbajo();
+        //asignarValoresVectorFilaVIzquierda();
+        ImprimirVector(FilaVDerecha);
         cubo.trasponerMatriz(2, 1);
-        cubo.imprimirMatriz(cubo.cubo);
+        //cubo.imprimirMatriz(cubo.cubo);
         PintarGridPane2(grd_Cubo, cubo.cubo, 1);
         PintarGridPane3(grd_cara1, cubo.cubo, 0);
         PintarGridPane3(grd_cara2, cubo.cubo, 1);
@@ -534,21 +555,20 @@ public class CuboController implements Initializable {
     @FXML
     private void GirarFilaVerticalIzquierdaAbjo(ActionEvent event) { //revisar
 
-        vaciarVector(FilaVIzquierda);
-        asignarValoresVectorFilaVIzquierda();
+        //vaciarVector(FilaVIzquierda);
+        //asignarValoresVectorFilaVIzquierda();
         CorrimientoCircularIzquierda(FilaVIzquierda, 3);
         ActualizarMatrizConVectorFVI();
 
-        vaciarVector(FilaVDerecha);
-        vaciarVector(FilaArriba);
-        vaciarVector(FilaAbajo);
-
-        asignarValoresVectorFilaArriba();
-        asignarValoresVectorFilaAbajo();
-        asignarValoresVectorFilaVDerecha();
-
+        //vaciarVector(FilaVDerecha);
+        //vaciarVector(FilaArriba);
+        //vaciarVector(FilaAbajo);
+        //asignarValoresVectorFilaArriba();
+        //asignarValoresVectorFilaAbajo();
+        //asignarValoresVectorFilaVDerecha();
+        ImprimirVector(FilaVIzquierda);
         cubo.trasponerMatriz(0, 0);
-        cubo.imprimirMatriz(cubo.cubo);
+        //cubo.imprimirMatriz(cubo.cubo);
         PintarGridPane2(grd_Cubo, cubo.cubo, 1);
         PintarGridPane3(grd_cara1, cubo.cubo, 0);
         PintarGridPane3(grd_cara2, cubo.cubo, 1);
@@ -561,21 +581,20 @@ public class CuboController implements Initializable {
     @FXML
     private void GirarFilaVerticalDerechaAbajo(ActionEvent event) { //revisar
 
-        vaciarVector(FilaVDerecha);
-        asignarValoresVectorFilaVDerecha();
+        //vaciarVector(FilaVDerecha);
+        //asignarValoresVectorFilaVDerecha();
         CorrimientoCircularIzquierda(FilaVDerecha, 3);
         ActualizarMatrizConVectorFVD();
 
-        vaciarVector(FilaVIzquierda);
-        vaciarVector(FilaArriba);
-        vaciarVector(FilaAbajo);
-
-        asignarValoresVectorFilaArriba();
-        asignarValoresVectorFilaAbajo();
-        asignarValoresVectorFilaVIzquierda();
-
+        //vaciarVector(FilaVIzquierda);
+        //vaciarVector(FilaArriba);
+        //vaciarVector(FilaAbajo);
+        //asignarValoresVectorFilaArriba();
+        //asignarValoresVectorFilaAbajo();
+        //asignarValoresVectorFilaVIzquierda();
+        ImprimirVector(FilaVDerecha);
         cubo.trasponerMatriz(2, 1);
-        cubo.imprimirMatriz(cubo.cubo);
+        //cubo.imprimirMatriz(cubo.cubo);
         PintarGridPane2(grd_Cubo, cubo.cubo, 1);
         PintarGridPane3(grd_cara1, cubo.cubo, 0);
         PintarGridPane3(grd_cara2, cubo.cubo, 1);
@@ -593,16 +612,15 @@ public class CuboController implements Initializable {
         CorrimientoCircularIzquierda(FilaAbajo, 3);
         ActualizarMatrizConVectorFAB();
 
-        vaciarVector(FilaVIzquierda);
-        vaciarVector(FilaArriba);
-        vaciarVector(FilaVDerecha);
-
-        asignarValoresVectorFilaArriba();
-        asignarValoresVectorFilaVDerecha();
-        asignarValoresVectorFilaVIzquierda();
-
+        //vaciarVector(FilaVIzquierda);
+        //vaciarVector(FilaArriba);
+        //vaciarVector(FilaVDerecha);
+        //asignarValoresVectorFilaArriba();
+        //asignarValoresVectorFilaVDerecha();
+        //asignarValoresVectorFilaVIzquierda();
+        ImprimirVector(FilaAbajo);
         cubo.trasponerMatriz(5, 1);
-        cubo.imprimirMatriz(cubo.cubo);
+        //cubo.imprimirMatriz(cubo.cubo);
         PintarGridPane2(grd_Cubo, cubo.cubo, 1);
         PintarGridPane3(grd_cara1, cubo.cubo, 0);
         PintarGridPane3(grd_cara2, cubo.cubo, 1);
@@ -620,17 +638,16 @@ public class CuboController implements Initializable {
         CorrimientoCircularDerecha(FilaVIzquierda, 3);
         ActualizarMatrizConVectorFVI();
 
-        vaciarVector(FilaAbajo);//
-        vaciarVector(FilaArriba);//
-        vaciarVector(FilaVDerecha);//
-
-        asignarValoresVectorFilaArriba();//
-        asignarValoresVectorFilaVDerecha();//
-        asignarValoresVectorFilaAbajo();//
-
+        //vaciarVector(FilaAbajo);//
+        //vaciarVector(FilaArriba);//
+        //vaciarVector(FilaVDerecha);//
+        //asignarValoresVectorFilaArriba();//
+        //asignarValoresVectorFilaVDerecha();//
+        //asignarValoresVectorFilaAbajo();//
+        ImprimirVector(FilaVIzquierda);
         cubo.trasponerMatriz(0, 1);
 
-        cubo.imprimirMatriz(cubo.cubo);
+        //cubo.imprimirMatriz(cubo.cubo);
 
         PintarGridPane2(grd_Cubo, cubo.cubo, 1);
         PintarGridPane3(grd_cara1, cubo.cubo, 0);
@@ -645,6 +662,5 @@ public class CuboController implements Initializable {
         for (int i = 0; i < v.length; i++) {
             v[i] = 0;
         }
-
     }
 }
