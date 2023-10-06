@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1501.0" stylesheets="@../../Styles/Estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.proyecto.CuboController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1501.0" stylesheets="@../../Styles/Estilo.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.proyecto.CuboController">
    <children>
       <GridPane fx:id="grd_Cubo" gridLinesVisible="true" layoutX="529.0" layoutY="241.0" prefHeight="356.0" prefWidth="356.0">
         <columnConstraints>
@@ -259,6 +259,15 @@
             <ImageView fitHeight="73.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Imagenes/ResolverCubo.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="1241.0" layoutY="692.0" mnemonicParsing="false" onAction="#Desarmar" prefHeight="88.0" prefWidth="99.0">
+         <graphic>
+            <ImageView fitHeight="73.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Imagenes/Desarmar.png" />
                </image>
             </ImageView>
          </graphic>

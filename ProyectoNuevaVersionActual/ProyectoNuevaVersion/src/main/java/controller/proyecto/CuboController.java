@@ -6,6 +6,9 @@ package controller.proyecto;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Stack;
 import javafx.application.Platform;
@@ -623,5 +626,62 @@ public class CuboController implements Initializable {
         });
 
         resolverThread.start();
+    }
+
+    @FXML
+    private void Desarmar(ActionEvent event) {
+        Random rand = new Random();
+        int cantidadNumeros = 25;
+        List<Integer> numerosAleatorios = new ArrayList<>();
+
+        for (int i = 0; i < cantidadNumeros; i++) {
+            int numeroAleatorio = rand.nextInt(12) + 1;
+            numerosAleatorios.add(numeroAleatorio);
+
+            switch (numerosAleatorios.get(i)) {
+                case 1:
+                    if (numeroAleatorio == 1) {
+                        GirarFilaArribaDerecha(event);
+                    }
+                    break;
+                case 2:
+                    if (numeroAleatorio == 2) {
+                        GirarFIlaArribaIzquierda(event);
+                    }
+                    break;
+                case 3:
+                    if (numeroAleatorio == 3) {
+                        GirarFilaAbajoDerecha(event);
+                    }
+                    break;
+                case 4:
+                    if (numeroAleatorio == 4) {
+                        GirarFIlaAbajoIzquierda(event);
+                    }
+                    break;
+                case 5:
+                    if (numeroAleatorio == 5) {
+                        GirarFilaVerticalIzquierda(event);
+                    }
+                    break;
+                case 6:
+                    if (numeroAleatorio == 6) {
+                        GirarFIlaVerticalDerechaArriba(event);
+                    }
+                    break;
+                case 7:
+                    if (numeroAleatorio == 7) {
+                        GirarFilaVerticalIzquierdaAbjo(event);
+                    }
+                    break;
+                case 8:
+                    if (numeroAleatorio == 8) {
+                        GirarFilaVerticalDerechaAbajo(event);
+                    }
+                    break;
+                default:
+
+            }
+        }
     }
 }
