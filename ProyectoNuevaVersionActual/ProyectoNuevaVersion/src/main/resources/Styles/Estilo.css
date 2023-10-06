@@ -1,0 +1,38 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 22 ago 2023, 10:04:29
+    Author     : Melani Barrantes
+*/
+
+#AnchorPane {
+    -fx-background-color: linear-gradient(to bottom, #B0D2FF, white);
+    -fx-font-family: "Britannic Bold";
+}
+
+.highlight{
+    -fx-background-color: #00000015;
+    -fx-background-radius: 15;
+}
+
+.button{
+    -fx-background-color: #00000015;
+    -fx-border-radius: 30px;
+    -fx-background-radius: 30;
+    -fx-font-size: 15pt;
+}
+
+.button:hover{
+    -fx-border-color: blue;
+}
+
+.text-field{
+    -fx-font-size: 15pt;
+    -fx-text-fill: red;
+}
+
+.text-field:hover{
+    -fx-border-color: grey;
+}
