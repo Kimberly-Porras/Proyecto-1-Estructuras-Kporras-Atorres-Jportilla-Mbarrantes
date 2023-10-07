@@ -4,6 +4,7 @@
  */
 package controller.proyecto;
 
+import static controller.proyecto.PrincipalController.Continuar;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -100,7 +101,23 @@ public class CuboController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ReiniciarTodo();
+        if (Princip.Continuar) {
+            movimientos = Accesib.leerMovimientosDesdeArchivo(Princip.nombre, movimientos);
+            cubo.cubo = Accesib.leerMatrizDesdeArchivo(Princip.nombre);
+            ContadorMov = Accesib.leerCantidadMovimientosDesdeArchivo(Princip.nombre);
+            lbl_cantmov.setText(String.valueOf(Accesib.leerCantidadMovimientosDesdeArchivo(Princip.nombre)));
+          
+    
+    // Si el tiempo se leyó correctamente, actualiza la etiqueta
+    if (tiempo != null) {
+        // Supongamos que lbl_cantTiempo es la etiqueta donde deseas mostrar el tiempo
+        lbl_cantTiempo.setText(tiempo.obtenerTiempoFormateado());
+    }
+          
+            PintarTodo();
+        } else {
+            ReiniciarTodo();
+        }
 
         Timeline actualizarTiempo = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             if (tiempo != null) {
@@ -119,7 +136,7 @@ public class CuboController implements Initializable {
         movRand = false;
         lbl_cantmov.setText("0");
         lbl_cantTiempo.setText("00:00:00");
-        if(tiempo != null){
+        if (tiempo != null) {
             tiempo.reiniciarTiempo();
             tiempo = null;
         }
@@ -491,10 +508,10 @@ public class CuboController implements Initializable {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
             if (comprarCubo(cubo.getCubo().clone())) {
-               tiempo.detenerTiempo();
-               alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-               animacion();
-                
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+
             }
         }
     }
@@ -513,7 +530,7 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
@@ -532,7 +549,7 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
@@ -551,14 +568,19 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
 
     @FXML
     private void Guardar(ActionEvent event) {
-        Accesib.guardarMatriz(cubo.cubo, Princip.nombre, movimientos, ContadorMov, tiempo.obtenerTiempoFormateado());
+        tiempo.detenerTiempo();
+        if (tiempo == null) {
+            Accesib.guardarMatriz(cubo.cubo, Princip.nombre, movimientos, ContadorMov, "00:00:00");
+        } else {
+            Accesib.guardarMatriz(cubo.cubo, Princip.nombre, movimientos, ContadorMov, tiempo.obtenerTiempoFormateado());
+        }
     }
 
     @FXML
@@ -579,7 +601,7 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
@@ -597,7 +619,7 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
@@ -615,7 +637,7 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
@@ -633,7 +655,7 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
@@ -651,7 +673,7 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
@@ -669,7 +691,7 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
@@ -685,9 +707,9 @@ public class CuboController implements Initializable {
             lbl_cantmov.setText(String.valueOf(ContadorMov));
             if (comprarCubo(cubo.getCubo().clone())) {
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                alerta.mostrarAlerta("Juego terminado", "Felicidades Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }
@@ -705,7 +727,7 @@ public class CuboController implements Initializable {
                 tiempo.detenerTiempo();
                 alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
                 animacion();
-                
+
             }
         }
     }

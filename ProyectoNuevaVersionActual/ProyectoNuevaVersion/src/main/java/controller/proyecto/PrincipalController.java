@@ -4,6 +4,7 @@
  */
 package controller.proyecto;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -18,27 +19,30 @@ import javafx.scene.control.Alert.AlertType;
 
 //Universidad Nacional, Campus Coto
 //Desarrollado por:
-    //Joxan Portilla Hernandez
-    //Melani Barrantes Hidalgo
-    //Alberto Torres
-    //Kimberly Porras
+//Joxan Portilla Hernandez
+//Melani Barrantes Hidalgo
+//Alberto Torres
+//Kimberly Porras
 //2023
-
 public class PrincipalController implements Initializable {
+
     static String nombre = ""; //Para pasar el nombre por clases
+    static boolean Continuar = false;
+    Alerta alerta = new Alerta();
+
     @FXML
     private TextField txt_nombreJugador;
     
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void Salir(ActionEvent event) {
         System.exit(0);
     }
-
 
     @FXML
     private void PantallaAcercaDe(ActionEvent event) throws IOException {
@@ -46,15 +50,15 @@ public class PrincipalController implements Initializable {
     }
 
     @FXML
-    private void OnBtnJugar(MouseEvent event)  throws IOException {
+    private void OnBtnJugar(MouseEvent event) throws IOException {
         try {
             if (txt_nombreJugador.getText().isEmpty()) {
-                mostrarAlerta("Nickname Vacio", "Debe digitar un nickname para jugar");
+                alerta.mostrarAlerta("Nickname Vacio", "Debe digitar un nickname para jugar");
             } else {
                 boolean verificar = Accesibilidad.verificarNombreJugador(txt_nombreJugador.getText());
 
                 if (verificar) {
-                    mostrarAlerta("Nombre existente", "El nombre que digito esta asociado a otro jugador.");
+                    alerta.mostrarAlerta("Nombre existente", "El nombre que digito esta asociado a otro jugador.");
                 } else {
                     nombre = txt_nombreJugador.getText();
                     App.setRoot("Cubo");
@@ -67,19 +71,17 @@ public class PrincipalController implements Initializable {
         }
     }
     
-    private void mostrarAlerta(String titulo, String mensaje) {
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
-
-
     @FXML
-    private void ContinuarJuego(ActionEvent event) {
-        if (txt_nombreJugador.getText().isEmpty()) {
-            mostrarAlerta("Nickname Vacio", "Debe digitar un nickname para jugar");
+    private void ContinuarJuego(ActionEvent event) throws IOException {
+        
+        boolean verificar = Accesibilidad.verificarNombreJugador(txt_nombreJugador.getText());
+
+        if (!verificar) {
+            alerta.mostrarAlerta("Nombre existente", "El nombre que digito esta asociado a otro jugador.");
+        } else {
+            nombre = txt_nombreJugador.getText();
+            Continuar = true;
+            App.setRoot("Cubo");
         }
-    }   
+    }
 }

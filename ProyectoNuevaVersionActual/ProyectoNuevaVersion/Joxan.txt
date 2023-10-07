@@ -1,0 +1,33 @@
+Izquierda
+| 2| 2| 2
+| 2| 2| 2
+| 1| 1| 1
+
+Frente
+| 3| 3| 5
+| 3| 3| 5
+| 2| 2| 5
+
+Derecha
+| 4| 4| 3
+| 4| 4| 3
+| 4| 4| 3
+
+Atras
+| 6| 1| 1
+| 6| 1| 1
+| 6| 4| 4
+
+Arriba
+| 5| 5| 1
+| 5| 5| 1
+| 5| 5| 4
+
+Abajo
+| 6| 6| 3
+| 6| 6| 3
+| 6| 6| 2
+
+Movimientos:FilaVerticalDerechaAbajo;FilaVerticalIzquierdaAbajo;FilaVerticalIzquierda;FilaAbajoDerecha;FilaArribaDerecha;FilaArribaIzquierda;Derecha;
+CantMovimientos: 6
+Tiempo: 00:00:09
