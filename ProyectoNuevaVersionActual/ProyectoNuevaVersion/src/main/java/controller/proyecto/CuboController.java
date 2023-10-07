@@ -12,19 +12,23 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Stack;
 import javafx.animation.Animation;
+import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
+import javafx.animation.ParallelTransition;
+import javafx.animation.RotateTransition;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 //Universidad Nacional, Campus Coto
@@ -37,6 +41,7 @@ import javafx.util.Duration;
 public class CuboController implements Initializable {
 
     Accesibilidad Accesib = new Accesibilidad();
+    Alerta alerta = new Alerta();
 
     PrincipalController Princip = new PrincipalController();
     Cubo cubo = new Cubo();
@@ -108,11 +113,13 @@ public class CuboController implements Initializable {
     }
 
     public void ReiniciarTodo() { //Metodo para reiciar el juego
-        cubo.asignarValoresMatriz();
+        cubo.cubo = cubo.asignarValoresMatriz(cubo.cubo);
         PintarTodo();
         ContadorMov = 0;
         movRand = false;
         lbl_cantmov.setText("0");
+        lbl_cantTiempo.setText("00:00:00");
+        tiempo.reiniciarTiempo();
     }
 
     public Color ObtenerColor(int valor) { //Función para obtener el color segun un valor
@@ -480,6 +487,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+               tiempo.detenerTiempo();
+               alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+               animacion();
+                
+            }
         }
     }
 
@@ -493,6 +506,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -506,6 +525,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -519,12 +544,18 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
     @FXML
     private void Guardar(ActionEvent event) {
-        Accesib.guardarMatriz(cubo.cubo, Princip.nombre, movimientos);
+        Accesib.guardarMatriz(cubo.cubo, Princip.nombre, movimientos, ContadorMov, tiempo.obtenerTiempoFormateado());
     }
 
     @FXML
@@ -541,6 +572,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -553,6 +590,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -565,6 +608,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -577,6 +626,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -589,6 +644,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -601,6 +662,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -613,6 +680,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -625,6 +698,12 @@ public class CuboController implements Initializable {
         if (movRand) {
             ContadorMov++;
             lbl_cantmov.setText(String.valueOf(ContadorMov));
+            if (comprarCubo(cubo.getCubo().clone())) {
+                tiempo.detenerTiempo();
+                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
+                animacion();
+                
+            }
         }
     }
 
@@ -776,6 +855,42 @@ public class CuboController implements Initializable {
         }
 
         tiempo.iniciarTiempo();
+    }
 
+    private boolean comprarCubo(int comparacion[][][]) {
+        int cuboOrdenado[][][] = new int[6][3][3];
+        cuboOrdenado = cubo.asignarValoresMatriz(cuboOrdenado);
+
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 3; j++) {
+                for (int k = 0; k < 3; k++) {
+                    if (cuboOrdenado[i][j][k] != comparacion[i][j][k]) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    private void animacion() {
+        TranslateTransition translate = new TranslateTransition();
+        translate.setNode(grd_Cubo);
+        translate.setDuration(javafx.util.Duration.millis(500));
+        translate.setCycleCount(TranslateTransition.INDEFINITE);
+        translate.setInterpolator(Interpolator.LINEAR);
+        translate.setByX(400);
+        translate.setAutoReverse(true);
+
+        RotateTransition rotate = new RotateTransition();
+        rotate.setNode(grd_Cubo);
+        rotate.setDuration(javafx.util.Duration.millis(500));
+        rotate.setCycleCount(TranslateTransition.INDEFINITE);
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setByAngle(360);
+        rotate.setAxis(Rotate.Z_AXIS);
+
+        ParallelTransition animation = new ParallelTransition(translate, rotate);
+        animation.play();
     }
 }

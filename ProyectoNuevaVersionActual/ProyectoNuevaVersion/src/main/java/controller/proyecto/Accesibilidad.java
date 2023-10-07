@@ -30,7 +30,7 @@ public class Accesibilidad {
         return false;
     }
     
-    public void guardarMatriz(int valoresCubo[][][], String nombre, Stack movimientos) { //Guarda la matriz en un txt
+    public void guardarMatriz(int valoresCubo[][][], String nombre, Stack movimientos, int cantmovimientos, String tiempo) { //Guarda la matriz en un txt
         // Nombre del archivo que vamos a crear. Si no exite lo crea y si existe escribe
         String nombreArchivo = nombre + ".txt";
 
@@ -77,9 +77,10 @@ public class Accesibilidad {
             }
             
             while(movimientos.empty() == false){
-                bufferEscritura.write(movimientos.pop() + ";");
+                bufferEscritura.write("Movimientos: " + movimientos.pop() + ";");
             }
-
+            
+            bufferEscritura.write("CantMovimientos: " + cantmovimientos);
             // Cerramos el archivo
             bufferEscritura.close();
 

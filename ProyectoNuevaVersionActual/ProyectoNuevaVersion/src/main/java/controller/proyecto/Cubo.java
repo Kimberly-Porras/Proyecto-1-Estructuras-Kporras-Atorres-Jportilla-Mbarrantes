@@ -12,7 +12,7 @@ package controller.proyecto;
 //Kimberly Porras
 //2023
 public class Cubo {
-    
+
     int cubo[][][] = new int[6][3][3];
 
     public Cubo() {
@@ -25,33 +25,34 @@ public class Cubo {
     public void setCubo(int[][][] cubo) {
         this.cubo = cubo;
     }
-    
-    public void asignarValoresMatriz() { //Rellena la matriz con numeros del 1 al 6 para asignar colores.
+
+    public int[][][] asignarValoresMatriz(int rellenar[][][]) { //Rellena la matriz con numeros del 1 al 6 para asignar colores.
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 3; j++) {
                 for (int k = 0; k < 3; k++) {
                     switch (i) {
                         case 0:
-                            cubo[i][k][j] = 1;
+                            rellenar[i][k][j] = 1;
                             break;
                         case 1:
-                            cubo[i][k][j] = 2;
+                            rellenar[i][k][j] = 2;
                             break;
                         case 2:
-                            cubo[i][k][j] = 3;
+                            rellenar[i][k][j] = 3;
                             break;
                         case 3:
-                            cubo[i][k][j] = 4;
+                            rellenar[i][k][j] = 4;
                             break;
                         case 4:
-                            cubo[i][k][j] = 5;
+                            rellenar[i][k][j] = 5;
                             break;
                         case 5:
-                            cubo[i][k][j] = 6;
+                            rellenar[i][k][j] = 6;
                             break;
                     }
                 }
             }
         }
+        return rellenar;
     }
 }
