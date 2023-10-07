@@ -2,10 +2,13 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
 */
-/* 
-    Created on : 22 ago 2023, 10:04:29
-    Author     : Melani Barrantes
-*/
+//Universidad Nacional, Campus Coto
+//Desarrollado por:
+    //Joxan Portilla Hernandez
+    //Melani Barrantes Hidalgo
+    //Alberto Torres
+    //Kimberly Porras
+//2023
 
 #AnchorPane {
     -fx-background-color: linear-gradient(to bottom, #B0D2FF, white);
@@ -35,4 +38,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .text-field:hover{
     -fx-border-color: grey;
+}
+
+.label#lbl_tiempo{
+    -fx-font-size: 15pt;
+    -fx-text-fill: white;
+}
+
+.label#lbl_mov{
+    -fx-font-size: 15pt;
+    -fx-text-fill: white;
+}
+
+.label#lbl_cantmov{
+    -fx-font-size: 13pt;
+    -fx-border-radius: 15px;
+    -fx-border-color: #3AB230;
+    -fx-text-fill: #14650D;
+}
+
+.label#lbl_cantTiempo{
+    -fx-font-size: 13pt;
+    -fx-border-radius: 15px;
+    -fx-border-color: #3AB230;
+    -fx-text-fill: #14650D;
 }

@@ -11,32 +11,40 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Stack;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
+import javafx.util.Duration;
 
-/**
- * *
- * Año 2023 Universidad Nacional, Campus Coto
- *
- * @author Joxan Portilla Hernandez
- * @author Melani Barrantes Hidalgo
- * @author Alberto Torres
- * @author Kimberly Porras
- */
+//Universidad Nacional, Campus Coto
+//Desarrollado por:
+//Joxan Portilla Hernandez
+//Melani Barrantes Hidalgo
+//Alberto Torres
+//Kimberly Porras
+//2023
 public class CuboController implements Initializable {
 
     Accesibilidad Accesib = new Accesibilidad();
+
     PrincipalController Princip = new PrincipalController();
     Cubo cubo = new Cubo();
     final int CARAS = 6, FILAS = 3, COLUMNAS = 3;
     int i, j, k;
     int caras[] = {1, 4, 3, 5}; // Caras para arriba y abajo
+    int ContadorMov = 0;
+    boolean movRand = false;
 
     Stack movimientos = new Stack();
 
@@ -72,15 +80,39 @@ public class CuboController implements Initializable {
     private Rectangle R_02;
     @FXML
     private Rectangle R_21;
+    @FXML
+    private Label lbl_mov;
+    @FXML
+    private Label lbl_cantmov;
+    @FXML
+    private Label lbl_tiempo;
+    @FXML
+    private Label lbl_cantTiempo;
+    @FXML
+    private Button btn_jugar;
+
+    private Tiempo tiempo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ReiniciarTodo();
+
+        Timeline actualizarTiempo = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+            if (tiempo != null) {
+                lbl_cantTiempo.setText(tiempo.obtenerTiempoFormateado());
+            }
+        }));
+        actualizarTiempo.setCycleCount(Animation.INDEFINITE);
+        actualizarTiempo.play();
+
     }
 
     public void ReiniciarTodo() { //Metodo para reiciar el juego
         cubo.asignarValoresMatriz();
         PintarTodo();
+        ContadorMov = 0;
+        movRand = false;
+        lbl_cantmov.setText("0");
     }
 
     public Color ObtenerColor(int valor) { //Función para obtener el color segun un valor
@@ -445,6 +477,10 @@ public class CuboController implements Initializable {
         Transponer(2, false);
         PintarTodo();
         movimientos.push("Abajo");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
@@ -454,6 +490,10 @@ public class CuboController implements Initializable {
         Transponer(2, false);
         PintarTodo();
         movimientos.push("Arriba");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
@@ -463,6 +503,10 @@ public class CuboController implements Initializable {
         Transponer(5, true);
         PintarTodo();
         movimientos.push("Derecha");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
@@ -472,6 +516,10 @@ public class CuboController implements Initializable {
         Transponer(5, false);
         PintarTodo();
         movimientos.push("Izquierda");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
@@ -490,6 +538,10 @@ public class CuboController implements Initializable {
         Transponer(4, true);
         PintarTodo();
         movimientos.push("FilaArribaDerecha");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
@@ -498,6 +550,10 @@ public class CuboController implements Initializable {
         Transponer(4, false);
         PintarTodo();
         movimientos.push("FilaArribaIzquierda");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
@@ -506,30 +562,46 @@ public class CuboController implements Initializable {
         Transponer(5, false);
         PintarTodo();
         movimientos.push("FilaAbajoDerecha");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
-    private void GirarFIlaVerticalDerechaArriba(ActionEvent event) { //revisar
+    private void GirarFIlaVerticalDerechaArriba(ActionEvent event) {
         GirarArriba(2);
         Transponer(2, false);
         PintarTodo();
         movimientos.push("FilaVerticalDerechaArriba");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
-    private void GirarFilaVerticalIzquierdaAbjo(ActionEvent event) { //revisar
+    private void GirarFilaVerticalIzquierdaAbjo(ActionEvent event) {
         GirarAbajo(0);
         Transponer(0, false);
         PintarTodo();
         movimientos.push("FilaVerticalIzquierdaAbajo");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
-    private void GirarFilaVerticalDerechaAbajo(ActionEvent event) { //revisar
+    private void GirarFilaVerticalDerechaAbajo(ActionEvent event) {
         GirarAbajo(2);
         Transponer(2, true);
         PintarTodo();
         movimientos.push("FilaVerticalDerechaAbajo");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
@@ -538,6 +610,10 @@ public class CuboController implements Initializable {
         Transponer(5, true);
         PintarTodo();
         movimientos.push("FilaAbajoIzquierda");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
@@ -546,6 +622,10 @@ public class CuboController implements Initializable {
         Transponer(0, true);
         PintarTodo();
         movimientos.push("FilaVerticalIzquierda");
+        if (movRand) {
+            ContadorMov++;
+            lbl_cantmov.setText(String.valueOf(ContadorMov));
+        }
     }
 
     @FXML
@@ -683,5 +763,19 @@ public class CuboController implements Initializable {
 
             }
         }
+        btn_jugar.setDisable(true);
+        movRand = true;
+    }
+
+    @FXML
+    private void Jugar(ActionEvent event) {
+        movRand = true;
+
+        if (tiempo == null) {
+            tiempo = new Tiempo();
+        }
+
+        tiempo.iniciarTiempo();
+
     }
 }

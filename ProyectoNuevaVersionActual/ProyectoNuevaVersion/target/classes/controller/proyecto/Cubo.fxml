@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1501.0" stylesheets="@../../Styles/Estilo.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.proyecto.CuboController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1501.0" stylesheets="@../../Styles/Estilo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.proyecto.CuboController">
    <children>
       <GridPane fx:id="grd_Cubo" gridLinesVisible="true" layoutX="529.0" layoutY="241.0" prefHeight="356.0" prefWidth="356.0">
         <columnConstraints>
@@ -256,18 +256,31 @@
       </GridPane>
       <Button layoutX="1365.0" layoutY="692.0" mnemonicParsing="false" onAction="#ResolverSolo" prefHeight="88.0" prefWidth="99.0">
          <graphic>
-            <ImageView fitHeight="73.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="72.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Imagenes/ResolverCubo.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="1241.0" layoutY="692.0" mnemonicParsing="false" onAction="#Desarmar" prefHeight="88.0" prefWidth="99.0">
+      <Button layoutX="1254.0" layoutY="692.0" mnemonicParsing="false" onAction="#Desarmar" prefHeight="88.0" prefWidth="99.0">
          <graphic>
             <ImageView fitHeight="73.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Imagenes/Desarmar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="lbl_mov" layoutX="998.0" layoutY="22.0" text="Movimientos" />
+      <Label fx:id="lbl_cantmov" alignment="CENTER" layoutX="1000.0" layoutY="51.0" prefHeight="34.0" prefWidth="110.0" text="0" />
+      <Label fx:id="lbl_tiempo" layoutX="1153.0" layoutY="22.0" text="Tiempo" />
+      <Label fx:id="lbl_cantTiempo" alignment="CENTER" layoutX="1130.0" layoutY="50.0" prefHeight="34.0" prefWidth="110.0" text="00:00:00" />
+      <Button fx:id="btn_jugar" layoutX="1142.0" layoutY="692.0" mnemonicParsing="false" onAction="#Jugar" prefHeight="88.0" prefWidth="99.0">
+         <graphic>
+            <ImageView fitHeight="73.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Imagenes/Jugar.png" />
                </image>
             </ImageView>
          </graphic>
