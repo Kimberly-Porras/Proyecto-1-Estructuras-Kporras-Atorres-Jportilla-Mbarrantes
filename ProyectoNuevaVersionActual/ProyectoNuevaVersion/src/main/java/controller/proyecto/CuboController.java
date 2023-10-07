@@ -119,7 +119,10 @@ public class CuboController implements Initializable {
         movRand = false;
         lbl_cantmov.setText("0");
         lbl_cantTiempo.setText("00:00:00");
-        tiempo.reiniciarTiempo();
+        if(tiempo != null){
+            tiempo.reiniciarTiempo();
+            tiempo = null;
+        }
     }
 
     public Color ObtenerColor(int valor) { //Función para obtener el color segun un valor
