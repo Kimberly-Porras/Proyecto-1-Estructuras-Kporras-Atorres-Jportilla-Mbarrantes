@@ -32,7 +32,6 @@ public class PrincipalController implements Initializable {
 
     @FXML
     private TextField txt_nombreJugador;
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -70,12 +69,10 @@ public class PrincipalController implements Initializable {
             ex.printStackTrace();
         }
     }
-    
+
     @FXML
     private void ContinuarJuego(ActionEvent event) throws IOException {
-        
         boolean verificar = Accesibilidad.verificarNombreJugador(txt_nombreJugador.getText());
-
         if (!verificar) {
             alerta.mostrarAlerta("Nombre existente", "El nombre que digito esta asociado a otro jugador.");
         } else {

@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import javafx.util.Duration;
 
 //Universidad Nacional, Campus Coto
 //Desarrollado por:
@@ -233,7 +234,6 @@ public class Accesibilidad {
                 }
             }
 
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -249,45 +249,46 @@ public class Accesibilidad {
         return cantidadMovimientos;
     }
 
-    public static String leerTiempoDesdeArchivo(String nombreJugador) {
-    BufferedReader br = null;
-    String tiempoEncontrado = null; // Variable para almacenar el tiempo encontrado
+    public Duration leerTiempoDesdeArchivo(String nombreJugador) {
+        BufferedReader br = null;
+        Duration tiempoD = null; // Variable para almacenar la cantidad de tiempo
+        String tiempo = null;
 
-    try {
-        br = new BufferedReader(new FileReader(nombreJugador));
+        try {
+            br = abrirArchivo(nombreJugador);
 
-        String linea;
+            String linea;
 
-        while ((linea = br.readLine()) != null) {
-            if (linea.startsWith("Tiempo:")) {
-                // Dividir la línea en dos partes usando ":" como separador
-                String[] partes = linea.split(":");
-                if (partes.length == 2) {
-                    tiempoEncontrado = partes[1].trim();
-                    break; // Detén la lectura después de encontrar el tiempo
+            while ((linea = br.readLine()) != null) {
+                if (linea.startsWith("Tiempo:")) {
+                    tiempo = (linea.substring("Tiempo:".length()).trim());
+                    System.out.println(tiempo);
+                    break; // Detén la lectura después de encontrar la cantidad de tiempo
                 }
             }
-        }
 
-        // Si se encontró el tiempo, imprimirlo desde dentro del método
-        if (tiempoEncontrado != null) {
-            System.out.println("Tiempo encontrado: " + tiempoEncontrado);
-        }
+            String[] partes = tiempo.split(":");
+            int horas = Integer.parseInt(partes[0]);
+            int minutos = Integer.parseInt(partes[1]);
+            int segundos = Integer.parseInt(partes[2]);
 
-    } catch (IOException e) {
-        e.printStackTrace();
-    } finally {
-        try {
-            if (br != null) {
-                br.close();
-            }
+// Calcula la duración total en milisegundos
+            long duracionMilisegundos = (horas * 3600 + minutos * 60 + segundos) * 1000;
+
+            tiempoD = Duration.millis(duracionMilisegundos);
+
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
+        return tiempoD;
     }
-
-    // Retornar el tiempo encontrado o null si no se encontró
-    return tiempoEncontrado;
-}
-
 }

@@ -106,14 +106,11 @@ public class CuboController implements Initializable {
             cubo.cubo = Accesib.leerMatrizDesdeArchivo(Princip.nombre);
             ContadorMov = Accesib.leerCantidadMovimientosDesdeArchivo(Princip.nombre);
             lbl_cantmov.setText(String.valueOf(Accesib.leerCantidadMovimientosDesdeArchivo(Princip.nombre)));
-          
-    
-    // Si el tiempo se leyó correctamente, actualiza la etiqueta
-    if (tiempo != null) {
-        // Supongamos que lbl_cantTiempo es la etiqueta donde deseas mostrar el tiempo
-        lbl_cantTiempo.setText(tiempo.obtenerTiempoFormateado());
-    }
-          
+            tiempo = new Tiempo(Accesib.leerTiempoDesdeArchivo(Princip.nombre));
+            if (tiempo != null) {
+                lbl_cantTiempo.setText(tiempo.obtenerTiempoFormateado());
+            }
+
             PintarTodo();
         } else {
             ReiniciarTodo();

@@ -3,6 +3,7 @@ controller\proyecto\Alerta.class
 module-info.class
 controller\proyecto\Tiempo.class
 controller\proyecto\AcercaDeController.class
+controller\proyecto\Tiempo$2.class
 controller\proyecto\App.class
 controller\proyecto\Cubo.class
 controller\proyecto\PrincipalController.class
