@@ -31,6 +31,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .button:hover{
     -fx-border-color: blue;
+    -fx-cursor: hand;
 }
 
 .text-field{
@@ -64,4 +65,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-radius: 15px;
     -fx-border-color: #3AB230;
     -fx-text-fill: #14650D;
+}
+
+#lbl_ganador{
+    /*#4D0063#68073C*/
+    -fx-text-fill: #520E33;
+    -fx-font-size: 50pt;
 }

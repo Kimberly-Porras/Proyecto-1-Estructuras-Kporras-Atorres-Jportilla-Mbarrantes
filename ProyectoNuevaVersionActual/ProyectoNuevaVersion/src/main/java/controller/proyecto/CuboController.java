@@ -17,6 +17,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.ParallelTransition;
 import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -42,7 +43,6 @@ import javafx.util.Duration;
 public class CuboController implements Initializable {
 
     Accesibilidad Accesib = new Accesibilidad();
-    Alerta alerta = new Alerta();
 
     PrincipalController Princip = new PrincipalController();
     Cubo cubo = new Cubo();
@@ -128,7 +128,13 @@ public class CuboController implements Initializable {
     private Button btn_aleatorio;
     
     boolean terminado = false;
-    ParallelTransition animation;
+    //ParallelTransition animation;
+    ScaleTransition animation = new ScaleTransition();
+    ScaleTransition animation1 = new ScaleTransition();
+    @FXML
+    private GridPane grd_Cubo1;
+    @FXML
+    private Label lbl_ganador;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -158,9 +164,9 @@ public class CuboController implements Initializable {
     }
 
     public void ReiniciarTodo() { //Metodo para reiciar el juego
-        ///if(terminado){
-            //habilitar();
-        //}
+        if(terminado){
+            habilitar();
+        }
         cubo.cubo = cubo.asignarValoresMatriz(cubo.cubo);
         PintarTodo();
         ContadorMov = 0;
@@ -541,10 +547,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
-
+                animacion();
             }
         }
     }
@@ -562,9 +566,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -582,9 +585,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -602,9 +604,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -636,9 +637,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -655,9 +655,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -674,9 +673,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -693,9 +691,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -712,9 +709,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -731,9 +727,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -750,9 +745,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego terminado", "Felicidades Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -769,9 +763,8 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
-                alerta.mostrarAlerta("Juego Terminado", "Felicidades!! Ha completado el cubo correctamente!");
-                animacion();
                 deshabilitar();
+                animacion();
             }
         }
     }
@@ -943,8 +936,26 @@ public class CuboController implements Initializable {
     }
 
     private void animacion() {
-        TranslateTransition translate = new TranslateTransition();
-        translate.setNode(grd_Cubo);
+        animation.setNode(grd_Cubo1);
+        animation.setDuration(Duration.millis(750));
+        animation.setCycleCount(TranslateTransition.INDEFINITE);
+        animation.setInterpolator(Interpolator.LINEAR);
+        animation.setByX(0.3);
+        animation.setByY(0.3);
+        animation.setAutoReverse(true);
+        
+        animation1.setNode(lbl_ganador);
+        animation1.setDuration(Duration.millis(750));
+        animation1.setCycleCount(TranslateTransition.INDEFINITE);
+        animation1.setInterpolator(Interpolator.LINEAR);
+        animation1.setByX(0.3);
+        animation1.setByY(0.3);
+        animation1.setAutoReverse(true);
+        
+        animation.play();
+        animation1.play();
+        /*TranslateTransition translate = new TranslateTransition();
+        translate.setNode(grd_Cubo1);
         translate.setDuration(javafx.util.Duration.millis(500));
         translate.setCycleCount(TranslateTransition.INDEFINITE);
         translate.setInterpolator(Interpolator.LINEAR);
@@ -952,7 +963,7 @@ public class CuboController implements Initializable {
         translate.setAutoReverse(true);
 
         RotateTransition rotate = new RotateTransition();
-        rotate.setNode(grd_Cubo);
+        rotate.setNode(grd_Cubo1);
         rotate.setDuration(javafx.util.Duration.millis(500));
         rotate.setCycleCount(TranslateTransition.INDEFINITE);
         rotate.setInterpolator(Interpolator.LINEAR);
@@ -960,10 +971,14 @@ public class CuboController implements Initializable {
         rotate.setAxis(Rotate.Z_AXIS);
 
         animation = new ParallelTransition(translate, rotate);
-        animation.play();
+        animation.play();*/
     }
 
     private void deshabilitar() {
+        grd_Cubo.setVisible(false);
+        grd_Cubo1.setVisible(true);
+        lbl_ganador.setVisible(true);
+        grd_Cubo1.setStyle("-fx-background-color: red;");
         btn_jugar.setDisable(true);
         btn_GirarFilaArribaDerecha.setDisable(true);
         btn_GirarFIlaArribaIzquierda.setDisable(true);
@@ -983,6 +998,10 @@ public class CuboController implements Initializable {
     
     private void habilitar() {
         animation.stop();
+        animation1.stop();
+        grd_Cubo.setVisible(true);
+        grd_Cubo1.setVisible(false);
+        lbl_ganador.setVisible(false);
         btn_jugar.setDisable(false);
         btn_GirarFilaArribaDerecha.setDisable(false);
         btn_GirarFIlaArribaIzquierda.setDisable(false);
