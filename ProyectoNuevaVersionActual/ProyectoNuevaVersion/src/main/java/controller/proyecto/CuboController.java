@@ -547,6 +547,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -566,6 +567,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -585,6 +587,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -604,6 +607,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -637,6 +641,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -655,6 +660,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -673,6 +679,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -691,6 +698,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -709,6 +717,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -727,6 +736,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -745,6 +755,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }
@@ -763,6 +774,7 @@ public class CuboController implements Initializable {
             if (comprarCubo(cubo.getCubo().clone())) {
                 terminado = true;
                 tiempo.detenerTiempo();
+                Accesib.guardarPuntuaciones(ContadorMov, tiempo.obtenerTiempoFormateado(), Princip.nombre);
                 deshabilitar();
                 animacion();
             }

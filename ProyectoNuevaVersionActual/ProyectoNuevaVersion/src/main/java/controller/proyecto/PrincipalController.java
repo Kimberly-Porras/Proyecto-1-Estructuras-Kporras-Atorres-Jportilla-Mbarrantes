@@ -24,6 +24,7 @@ import javafx.scene.control.Alert.AlertType;
 //Alberto Torres
 //Kimberly Porras
 //2023
+
 public class PrincipalController implements Initializable {
 
     static String nombre = ""; //Para pasar el nombre por clases
@@ -80,5 +81,10 @@ public class PrincipalController implements Initializable {
             Continuar = true;
             App.setRoot("Cubo");
         }
+    }
+
+    @FXML
+    private void PantallaMP(ActionEvent event) throws IOException {
+        App.setRoot("MejoresPuntuaciones");
     }
 }

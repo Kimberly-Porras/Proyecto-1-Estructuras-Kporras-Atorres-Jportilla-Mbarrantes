@@ -291,4 +291,39 @@ public class Accesibilidad {
 
         return tiempoD;
     }
+
+    public void guardarPuntuaciones(int movimientos, String tiempo, String nombreJugador) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("MejoresPuntuaciones.txt", true))) {
+            String puntuacion = nombreJugador + ";" + tiempo + ";" + movimientos;
+            writer.write(puntuacion);
+            writer.newLine(); 
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    public static List<MejoresPuntuaciones> leerMejoresPuntuacionesDesdeArchivo() {
+        List<MejoresPuntuaciones> puntuaciones = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("MejoresPuntuaciones.txt"))) {
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                String[] partes = linea.split(";");
+                if (partes.length == 3) {
+                    String nombre = partes[0].trim();
+                    String tiempo = partes[1].trim();
+                    int movimientos = Integer.parseInt(partes[2].trim());
+
+                    MejoresPuntuaciones puntuacion = new MejoresPuntuaciones(nombre, tiempo, movimientos);
+                    puntuaciones.add(puntuacion);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return puntuaciones;
+    }
+
 }

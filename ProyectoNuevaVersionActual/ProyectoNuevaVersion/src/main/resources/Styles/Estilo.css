@@ -72,3 +72,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: #520E33;
     -fx-font-size: 50pt;
 }
+
+.table-view{
+    -fx-font-size: 15pt;
+}
