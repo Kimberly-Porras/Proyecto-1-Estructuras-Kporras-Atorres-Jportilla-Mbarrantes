@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.image.Image;
 
 //Universidad Nacional, Campus Coto
 //Desarrollado por:
@@ -26,6 +27,9 @@ public class App extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.setTitle("Cubo Rubik");
+        Image image = new Image("/Imagenes/Cubo.png");
+        stage.getIcons().add(image);
+        
         stage.show();
     }
 

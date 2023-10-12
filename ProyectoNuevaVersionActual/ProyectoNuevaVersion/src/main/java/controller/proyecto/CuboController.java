@@ -15,8 +15,6 @@ import java.util.Stack;
 import javafx.animation.Animation;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
-import javafx.animation.ParallelTransition;
-import javafx.animation.RotateTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
@@ -30,7 +28,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
-import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 //Universidad Nacional, Campus Coto
@@ -128,7 +125,6 @@ public class CuboController implements Initializable {
     private Button btn_aleatorio;
     
     boolean terminado = false;
-    //ParallelTransition animation;
     ScaleTransition animation = new ScaleTransition();
     ScaleTransition animation1 = new ScaleTransition();
     @FXML
@@ -166,6 +162,8 @@ public class CuboController implements Initializable {
     public void ReiniciarTodo() { //Metodo para reiciar el juego
         if(terminado){
             habilitar();
+        }else{
+            btn_jugar.setDisable(false);
         }
         cubo.cubo = cubo.asignarValoresMatriz(cubo.cubo);
         PintarTodo();
@@ -531,6 +529,7 @@ public class CuboController implements Initializable {
 
     @FXML
     private void Volver(ActionEvent event) throws IOException { //Vuelve a la pantalla principal
+        Princip.Continuar = false;
         App.setRoot("Principal");
     }
 
@@ -616,10 +615,10 @@ public class CuboController implements Initializable {
 
     @FXML
     private void Guardar(ActionEvent event) {
-        tiempo.detenerTiempo();
         if (tiempo == null) {
             Accesib.guardarMatriz(cubo.cubo, Princip.nombre, movimientos, ContadorMov, "00:00:00");
         } else {
+            tiempo.detenerTiempo();
             Accesib.guardarMatriz(cubo.cubo, Princip.nombre, movimientos, ContadorMov, tiempo.obtenerTiempoFormateado());
         }
     }
@@ -859,6 +858,7 @@ public class CuboController implements Initializable {
         });
 
         resolverThread.start();
+        tiempo.detenerTiempo();
     }
 
     @FXML
@@ -917,7 +917,7 @@ public class CuboController implements Initializable {
             }
         }
         btn_jugar.setDisable(true);
-        movRand = true;
+        Jugar(event);
     }
 
     @FXML
@@ -966,24 +966,6 @@ public class CuboController implements Initializable {
         
         animation.play();
         animation1.play();
-        /*TranslateTransition translate = new TranslateTransition();
-        translate.setNode(grd_Cubo1);
-        translate.setDuration(javafx.util.Duration.millis(500));
-        translate.setCycleCount(TranslateTransition.INDEFINITE);
-        translate.setInterpolator(Interpolator.LINEAR);
-        translate.setByX(400);
-        translate.setAutoReverse(true);
-
-        RotateTransition rotate = new RotateTransition();
-        rotate.setNode(grd_Cubo1);
-        rotate.setDuration(javafx.util.Duration.millis(500));
-        rotate.setCycleCount(TranslateTransition.INDEFINITE);
-        rotate.setInterpolator(Interpolator.LINEAR);
-        rotate.setByAngle(360);
-        rotate.setAxis(Rotate.Z_AXIS);
-
-        animation = new ParallelTransition(translate, rotate);
-        animation.play();*/
     }
 
     private void deshabilitar() {
