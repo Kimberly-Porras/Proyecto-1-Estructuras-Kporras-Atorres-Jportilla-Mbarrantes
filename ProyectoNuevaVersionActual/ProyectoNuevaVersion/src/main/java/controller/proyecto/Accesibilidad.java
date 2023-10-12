@@ -262,8 +262,7 @@ public class Accesibilidad {
             while ((linea = br.readLine()) != null) {
                 if (linea.startsWith("Tiempo:")) {
                     tiempo = (linea.substring("Tiempo:".length()).trim());
-                    System.out.println(tiempo);
-                    break; // Detén la lectura después de encontrar la cantidad de tiempo
+                    break; // Detiene la lectura después de encontrar la cantidad de tiempo
                 }
             }
 
@@ -272,7 +271,7 @@ public class Accesibilidad {
             int minutos = Integer.parseInt(partes[1]);
             int segundos = Integer.parseInt(partes[2]);
 
-// Calcula la duración total en milisegundos
+            // Calcula la duración total en milisegundos
             long duracionMilisegundos = (horas * 3600 + minutos * 60 + segundos) * 1000;
 
             tiempoD = Duration.millis(duracionMilisegundos);

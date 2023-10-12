@@ -487,12 +487,12 @@ public class CuboController implements Initializable {
                 rectangle.setFill(ObtenerColor(valor));
 
                 // Configura el tamaño del Rectangle
-                double cellWidth = 130; // Ajusta el ancho de la celda según tus necesidades
-                double cellHeight = 130; // Ajusta la altura de la celda según tus necesidades
+                double cellWidth = 130;
+                double cellHeight = 130;
                 rectangle.setWidth(cellWidth);
                 rectangle.setHeight(cellHeight);
 
-                // Configura el borde negro
+                // Borde negro
                 rectangle.setStroke(Color.BLACK); // Color del borde
                 rectangle.setStrokeWidth(2); // Grosor del borde
                 rectangle.setStrokeType(StrokeType.INSIDE); // Tipo de trazo del borde (en el interior del rectángulo)
@@ -512,12 +512,12 @@ public class CuboController implements Initializable {
                 rectangle.setFill(ObtenerColor(valor));
 
                 // Configura el tamaño del Rectangle
-                double cellWidth = 30; // Ajusta el ancho de la celda según tus necesidades
-                double cellHeight = 30; // Ajusta la altura de la celda según tus necesidades
+                double cellWidth = 30;
+                double cellHeight = 30;
                 rectangle.setWidth(cellWidth);
                 rectangle.setHeight(cellHeight);
 
-                // Configura el borde negro
+                // Borde negro
                 rectangle.setStroke(Color.BLACK); // Color del borde
                 rectangle.setStrokeWidth(2); // Grosor del borde
                 rectangle.setStrokeType(StrokeType.INSIDE); // Tipo de trazo del borde (en el interior del rectángulo)
